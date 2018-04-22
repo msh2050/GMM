@@ -129,19 +129,7 @@ namespace GMM.forms
         }
 
      
-        private void layoutControlItem5_CustomDraw(object sender, DevExpress.XtraLayout.ItemCustomDrawEventArgs e)
-        {
-            if (_memberId == -1 &&  barecodeTextEdit.Text == "")
-            {
-                barecodeTextEdit.Text = UniqueId.Get();
-            }
-
-            BarCode barCode = new BarCode();
-            barCode.Symbology = Symbology.Code93;
-            barCode.CodeText = barecodeTextEdit.Text;
-            barCode.CodeBinaryData = Encoding.Default.GetBytes(barCode.CodeText);
-            barecodeTextEdit.Text = barCode.CodeText;pictureEdit2.Image = barCode.BarCodeImage;
-        }
+        
 
         private void barButtonItem2_ItemClick(object sender, ItemClickEventArgs e)
         {
@@ -150,4 +138,19 @@ namespace GMM.forms
             report1.Parameters["IDP"].Visible = false;
             report1.ShowPreview();
         }
-    }}
+
+        private void MemberDetails_Shown(object sender, EventArgs e)
+        {
+            if (_memberId == -1 && barecodeTextEdit.Text == "")
+            {
+                barecodeTextEdit.Text = UniqueId.Get();
+            }
+
+            BarCode barCode = new BarCode();
+            barCode.Symbology = Symbology.Code93;
+            barCode.CodeText = barecodeTextEdit.Text;
+            barCode.CodeBinaryData = Encoding.Default.GetBytes(barCode.CodeText);
+            barecodeTextEdit.Text = barCode.CodeText; pictureEdit2.Image = barCode.BarCodeImage;
+        }
+    }
+}

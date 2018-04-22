@@ -32,6 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MemberDetails));
             this.dataLayoutControl1 = new DevExpress.XtraDataLayout.DataLayoutControl();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
+            this.المشتركينmembershipsBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.membersBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataDataSet = new GMM.dataDataSet();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -83,10 +84,10 @@
             this.tableAdapterManager = new GMM.dataDataSetTableAdapters.TableAdapterManager();
             this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
             this.membershipsTableAdapter = new GMM.dataDataSetTableAdapters.membershipsTableAdapter();
-            this.المشتركينmembershipsBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl1)).BeginInit();
             this.dataLayoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.المشتركينmembershipsBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.membersBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
@@ -115,7 +116,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem11)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.المشتركينmembershipsBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // dataLayoutControl1
@@ -156,6 +156,11 @@
             this.gridControl1.TabIndex = 23;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
+            // 
+            // المشتركينmembershipsBindingSource1
+            // 
+            this.المشتركينmembershipsBindingSource1.DataMember = "المشتركينmemberships";
+            this.المشتركينmembershipsBindingSource1.DataSource = this.membersBindingSource;
             // 
             // membersBindingSource
             // 
@@ -204,6 +209,7 @@
             // 
             // colMambershipDays
             // 
+            this.colMambershipDays.Caption = "مدة الاشتراك";
             this.colMambershipDays.FieldName = "MambershipDays";
             this.colMambershipDays.Name = "colMambershipDays";
             this.colMambershipDays.Visible = true;
@@ -640,7 +646,6 @@
             this.layoutControlItem5.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem5.TextVisible = false;
-            this.layoutControlItem5.CustomDraw += new System.EventHandler<DevExpress.XtraLayout.ItemCustomDrawEventArgs>(this.layoutControlItem5_CustomDraw);
             // 
             // membersTableAdapter
             // 
@@ -651,16 +656,12 @@
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
             this.tableAdapterManager.membershipsTableAdapter = null;
             this.tableAdapterManager.membersTableAdapter = this.membersTableAdapter;
+            this.tableAdapterManager.memcheckTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = GMM.dataDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
             // membershipsTableAdapter
             // 
             this.membershipsTableAdapter.ClearBeforeFill = true;
-            // 
-            // المشتركينmembershipsBindingSource1
-            // 
-            this.المشتركينmembershipsBindingSource1.DataMember = "المشتركينmemberships";
-            this.المشتركينmembershipsBindingSource1.DataSource = this.membersBindingSource;
             // 
             // MemberDetails
             // 
@@ -677,9 +678,11 @@
             this.RightToLeftLayout = true;
             this.Text = "مشترك";
             this.Load += new System.EventHandler(this.MemberDetails_Load);
+            this.Shown += new System.EventHandler(this.MemberDetails_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl1)).EndInit();
             this.dataLayoutControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.المشتركينmembershipsBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.membersBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
@@ -708,7 +711,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem11)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.المشتركينmembershipsBindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

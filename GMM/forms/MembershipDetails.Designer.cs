@@ -112,7 +112,7 @@ namespace GMM.forms
             // 
             // membershipStartDateDateEdit
             // 
-            this.membershipStartDateDateEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.membershipsBindingSource, "MembershipStartDate", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, new System.DateTime(2018, 4, 17, 12, 3, 27, 27)));
+            this.membershipStartDateDateEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.membershipsBindingSource, "MembershipStartDate", true));
             this.membershipStartDateDateEdit.EditValue = null;
             this.membershipStartDateDateEdit.Location = new System.Drawing.Point(16, 44);
             this.membershipStartDateDateEdit.MenuManager = this.mainRibbonControl;
@@ -125,6 +125,7 @@ namespace GMM.forms
             this.membershipStartDateDateEdit.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.membershipStartDateDateEdit.Properties.EditFormat.FormatString = "dd - MM - yyyy";
             this.membershipStartDateDateEdit.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.membershipStartDateDateEdit.Properties.Mask.EditMask = "dd - MM - yyyy";
             this.membershipStartDateDateEdit.Size = new System.Drawing.Size(785, 22);
             this.membershipStartDateDateEdit.StyleController = this.dataLayoutControl1;
             this.membershipStartDateDateEdit.TabIndex = 7;
@@ -220,7 +221,7 @@ namespace GMM.forms
             // 
             // mambershipDaysSpinEdit
             // 
-            this.mambershipDaysSpinEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.membershipsBindingSource, "MambershipDays", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, 30));
+            this.mambershipDaysSpinEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.membershipsBindingSource, "MambershipDays", true));
             this.mambershipDaysSpinEdit.EditValue = new decimal(new int[] {
             30,
             0,
@@ -254,6 +255,7 @@ namespace GMM.forms
             this.membershipEndDateDateEdit.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.membershipEndDateDateEdit.Properties.EditFormat.FormatString = "dd - MM - yyyy";
             this.membershipEndDateDateEdit.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.membershipEndDateDateEdit.Properties.Mask.EditMask = "dd - MM - yyyy";
             this.membershipEndDateDateEdit.Size = new System.Drawing.Size(785, 22);
             this.membershipEndDateDateEdit.StyleController = this.dataLayoutControl1;
             this.membershipEndDateDateEdit.TabIndex = 11;
@@ -393,7 +395,6 @@ namespace GMM.forms
             this.layoutControlItem2.Size = new System.Drawing.Size(913, 28);
             this.layoutControlItem2.Text = "الاسم:";
             this.layoutControlItem2.TextSize = new System.Drawing.Size(119, 17);
-            this.layoutControlItem2.CustomDraw += new System.EventHandler<DevExpress.XtraLayout.ItemCustomDrawEventArgs>(this.layoutControlItem2_CustomDraw);
             // 
             // layoutControlItem4
             // 
@@ -403,7 +404,6 @@ namespace GMM.forms
             this.layoutControlItem4.Size = new System.Drawing.Size(913, 28);
             this.layoutControlItem4.Text = "تاريخ الاشتراك:";
             this.layoutControlItem4.TextSize = new System.Drawing.Size(119, 17);
-            this.layoutControlItem4.CustomDraw += new System.EventHandler<DevExpress.XtraLayout.ItemCustomDrawEventArgs>(this.layoutControlItem4_CustomDraw);
             // 
             // layoutControlItem6
             // 
@@ -411,9 +411,8 @@ namespace GMM.forms
             this.layoutControlItem6.Location = new System.Drawing.Point(0, 56);
             this.layoutControlItem6.Name = "layoutControlItem6";
             this.layoutControlItem6.Size = new System.Drawing.Size(913, 28);
-            this.layoutControlItem6.Text = "مدرة الاشتراك:";
+            this.layoutControlItem6.Text = "مدة الاشتراك:";
             this.layoutControlItem6.TextSize = new System.Drawing.Size(119, 17);
-            this.layoutControlItem6.CustomDraw += new System.EventHandler<DevExpress.XtraLayout.ItemCustomDrawEventArgs>(this.layoutControlItem6_CustomDraw);
             // 
             // layoutControlItem8
             // 
@@ -482,6 +481,7 @@ namespace GMM.forms
             this.RightToLeftLayout = true;
             this.Text = "الاشتراك";
             this.Load += new System.EventHandler(this.MembershipDetails_Load);
+            this.Shown += new System.EventHandler(this.MembershipDetails_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl1)).EndInit();
             this.dataLayoutControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.membershipStartDateDateEdit.Properties.CalendarTimeProperties)).EndInit();

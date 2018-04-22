@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using DevExpress.Utils.Extensions;
 using DevExpress.XtraReports.UI;
+using Gma.System.MouseKeyHook;
 using GMM.dataDataSetTableAdapters;
 using GMM.forms;
 using GMM.helpers;
@@ -19,9 +20,18 @@ namespace GMM
     {
         DateTime _lastKeystroke = new DateTime(0);
         List<char> _barcode = new List<char>(10);
+
         public MainForm()
         {
             InitializeComponent();
+            var mGlobalHook = Hook.GlobalEvents();
+            mGlobalHook.KeyPress += GlobalHookKeyPress;
+        }
+
+        private void GlobalHookKeyPress(object sender, KeyPressEventArgs e)
+        {
+            CheckifItIsBacecode(e);
+            
         }
 
         private void NavBarItem2_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
@@ -46,7 +56,16 @@ namespace GMM
             membership.Show();
         }
 
-        private void MainForm_KeyPress(object sender, KeyPressEventArgs e)
+
+
+        private void navBarItem5_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            var checkreport = new checkreport();
+            checkreport.ShowRibbonPreview();
+
+        }
+
+        public void CheckifItIsBacecode(KeyPressEventArgs e)
         {
             // check timing (keystrokes within 100 ms)
             TimeSpan elapsed = (DateTime.Now - _lastKeystroke);
@@ -61,17 +80,13 @@ namespace GMM
             if (e.KeyChar == 13 && _barcode.Count > 7)
             {
                 string barcode = new String(this._barcode.ToArray());
-                
-                int  cusid = (int)(membersTableAdapter1.ScalarQuery(barcode.TrimEnd('\r') ) ?? -1);
+
+                int cusid = (int) (membersTableAdapter1.ScalarQuery(barcode.TrimEnd('\r')) ?? -1);
                 if (cusid == -1) return;
                 var checkin = new Checkin(cusid);
                 checkin.Show();
             }
-            }
-
-        private void navBarItem5_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
-        {
-            var checkreport = new checkreport();
-            checkreport.ShowRibbonPreview();}
+        }
+    
     }
 }

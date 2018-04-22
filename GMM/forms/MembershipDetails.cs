@@ -24,13 +24,7 @@ namespace GMM.forms
             InitializeComponent();
             
         }
-        private void membershipsBindingNavigatorSaveItem_Click(object sender, EventArgs e)
-        {
-            this.Validate();
-            this.membershipsBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.dataDataSet);
-
-        }
+     
 
         private void MembershipDetails_Load(object sender, EventArgs e)
         {
@@ -56,8 +50,8 @@ namespace GMM.forms
         private void mambershipDaysSpinEdit_EditValueChanged(object sender, EventArgs e)
         {
             if (mambershipDaysSpinEdit.EditValue != null && membershipStartDateDateEdit.EditValue != null)
-            {DateTime ST = membershipStartDateDateEdit.DateTime;
-                membershipEndDateDateEdit.DateTime = ST.AddDays((int)mambershipDaysSpinEdit.Value); 
+            {DateTime st = membershipStartDateDateEdit.DateTime;
+                membershipEndDateDateEdit.DateTime = st.AddDays((int)mambershipDaysSpinEdit.Value); 
             }
         }
 
@@ -112,27 +106,19 @@ namespace GMM.forms
                 MessageBox.Show(ex.ToString());
             }
         }
-
-        private void layoutControlItem2_CustomDraw(object sender, ItemCustomDrawEventArgs e)
+        
+        private void MembershipDetails_Shown(object sender, EventArgs e)
         {
             if (_memberId != -1)
             {
                 nameSpinEdit.EditValue = _memberId;
                 nameSpinEdit.ReadOnly = true;
-                
+
             }
             DateTime ST = membershipStartDateDateEdit.DateTime;
-            membershipEndDateDateEdit.DateTime = ST.AddDays((int)mambershipDaysSpinEdit.Value);}
-
-        private void layoutControlItem4_CustomDraw(object sender, ItemCustomDrawEventArgs e)
-        {
+            membershipEndDateDateEdit.DateTime = ST.AddDays((int)mambershipDaysSpinEdit.Value);
             membershipStartDateDateEdit.DateTime = DateTime.Today;
-        }
-
-        private void layoutControlItem6_CustomDraw(object sender, ItemCustomDrawEventArgs e)
-        {
             mambershipDaysSpinEdit.Value = 30;
-            
         }
     }
     
