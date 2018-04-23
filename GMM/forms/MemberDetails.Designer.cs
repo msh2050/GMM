@@ -42,6 +42,7 @@
             this.colMembershipPrice = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colAmountPaided = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colAmountRemaining = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colID = new DevExpress.XtraGrid.Columns.GridColumn();
             this.mainRibbonControl = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.bbiSave = new DevExpress.XtraBars.BarButtonItem();
             this.bbiSaveAndClose = new DevExpress.XtraBars.BarButtonItem();
@@ -84,6 +85,8 @@
             this.tableAdapterManager = new GMM.dataDataSetTableAdapters.TableAdapterManager();
             this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
             this.membershipsTableAdapter = new GMM.dataDataSetTableAdapters.membershipsTableAdapter();
+            this.ا = new DevExpress.XtraEditors.CheckEdit();
+            this.layoutControlItem13 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl1)).BeginInit();
             this.dataLayoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
@@ -116,6 +119,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem11)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ا.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem13)).BeginInit();
             this.SuspendLayout();
             // 
             // dataLayoutControl1
@@ -133,6 +138,7 @@
             this.dataLayoutControl1.Controls.Add(this.adressTextEdit);
             this.dataLayoutControl1.Controls.Add(this.EditPhotoButton);
             this.dataLayoutControl1.Controls.Add(this.pictureEdit2);
+            this.dataLayoutControl1.Controls.Add(this.ا);
             this.dataLayoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataLayoutControl1.HiddenItems.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlItem2});
@@ -188,17 +194,20 @@
             this.colMembershipEndDate,
             this.colMembershipPrice,
             this.colAmountPaided,
-            this.colAmountRemaining});
+            this.colAmountRemaining,
+            this.colID});
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.False;
             this.gridView1.OptionsBehavior.AllowDeleteRows = DevExpress.Utils.DefaultBoolean.False;
             this.gridView1.OptionsBehavior.AllowFixedGroups = DevExpress.Utils.DefaultBoolean.False;
             this.gridView1.OptionsBehavior.AllowGroupExpandAnimation = DevExpress.Utils.DefaultBoolean.False;
+            this.gridView1.OptionsBehavior.Editable = false;
             this.gridView1.OptionsBehavior.ReadOnly = true;
             this.gridView1.OptionsCustomization.AllowColumnMoving = false;
             this.gridView1.OptionsView.ShowGroupPanel = false;
             this.gridView1.OptionsView.ShowIndicator = false;
+            this.gridView1.DoubleClick += new System.EventHandler(this.gridView1_DoubleClick);
             // 
             // colMembershipStartDate
             // 
@@ -242,6 +251,11 @@
             this.colAmountRemaining.Name = "colAmountRemaining";
             this.colAmountRemaining.Visible = true;
             this.colAmountRemaining.VisibleIndex = 5;
+            // 
+            // colID
+            // 
+            this.colID.FieldName = "ID";
+            this.colID.Name = "colID";
             // 
             // mainRibbonControl
             // 
@@ -456,10 +470,10 @@
             // adressTextEdit
             // 
             this.adressTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.membersBindingSource, "Adress", true));
-            this.adressTextEdit.Location = new System.Drawing.Point(682, 103);
+            this.adressTextEdit.Location = new System.Drawing.Point(216, 103);
             this.adressTextEdit.MenuManager = this.mainRibbonControl;
             this.adressTextEdit.Name = "adressTextEdit";
-            this.adressTextEdit.Size = new System.Drawing.Size(353, 22);
+            this.adressTextEdit.Size = new System.Drawing.Size(819, 22);
             this.adressTextEdit.StyleController = this.dataLayoutControl1;
             this.adressTextEdit.TabIndex = 15;
             // 
@@ -514,7 +528,8 @@
             this.layoutControlGroup2,
             this.layoutControlItem11,
             this.layoutControlItem7,
-            this.layoutControlItem5});
+            this.layoutControlItem5,
+            this.layoutControlItem13});
             this.layoutControlGroup1.Name = "Root";
             this.layoutControlGroup1.Size = new System.Drawing.Size(1158, 497);
             this.layoutControlGroup1.TextVisible = false;
@@ -524,7 +539,7 @@
             this.layoutControlItem10.Control = this.alternatePhoneNumberTextEdit;
             this.layoutControlItem10.Location = new System.Drawing.Point(200, 59);
             this.layoutControlItem10.Name = "layoutControlItem10";
-            this.layoutControlItem10.Size = new System.Drawing.Size(466, 56);
+            this.layoutControlItem10.Size = new System.Drawing.Size(466, 28);
             this.layoutControlItem10.Text = "رقم الهاتف البديل:";
             this.layoutControlItem10.TextSize = new System.Drawing.Size(104, 17);
             // 
@@ -570,9 +585,9 @@
             // layoutControlItem12
             // 
             this.layoutControlItem12.Control = this.adressTextEdit;
-            this.layoutControlItem12.Location = new System.Drawing.Point(666, 87);
+            this.layoutControlItem12.Location = new System.Drawing.Point(200, 87);
             this.layoutControlItem12.Name = "layoutControlItem12";
-            this.layoutControlItem12.Size = new System.Drawing.Size(466, 28);
+            this.layoutControlItem12.Size = new System.Drawing.Size(932, 28);
             this.layoutControlItem12.Text = "العنوان:";
             this.layoutControlItem12.TextSize = new System.Drawing.Size(104, 17);
             // 
@@ -588,9 +603,9 @@
             // emptySpaceItem1
             // 
             this.emptySpaceItem1.AllowHotTrack = false;
-            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 315);
+            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 342);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(200, 156);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(200, 129);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlGroup2
@@ -663,6 +678,26 @@
             // 
             this.membershipsTableAdapter.ClearBeforeFill = true;
             // 
+            // ا
+            // 
+            this.ا.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.membersBindingSource, "IsDeactivated", true));
+            this.ا.Location = new System.Drawing.Point(16, 331);
+            this.ا.MenuManager = this.mainRibbonControl;
+            this.ا.Name = "ا";
+            this.ا.Properties.Caption = "الغاء المشترك";
+            this.ا.Size = new System.Drawing.Size(194, 21);
+            this.ا.StyleController = this.dataLayoutControl1;
+            this.ا.TabIndex = 24;
+            // 
+            // layoutControlItem13
+            // 
+            this.layoutControlItem13.Control = this.ا;
+            this.layoutControlItem13.Location = new System.Drawing.Point(0, 315);
+            this.layoutControlItem13.Name = "layoutControlItem13";
+            this.layoutControlItem13.Size = new System.Drawing.Size(200, 27);
+            this.layoutControlItem13.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem13.TextVisible = false;
+            // 
             // MemberDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -711,6 +746,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem11)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ا.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem13)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -771,5 +808,8 @@
         private DevExpress.XtraBars.BarButtonItem barButtonItem2;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup1;
         private System.Windows.Forms.BindingSource المشتركينmembershipsBindingSource1;
+        private DevExpress.XtraGrid.Columns.GridColumn colID;
+        private DevExpress.XtraEditors.CheckEdit ا;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem13;
     }
 }

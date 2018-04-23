@@ -18,9 +18,11 @@ namespace GMM.forms
     public partial class MembershipDetails : DevExpress.XtraBars.Ribbon.RibbonForm
     {
         private readonly int _memberId;
-        public MembershipDetails(int memberid = -1)
+        private readonly int _memshipId;
+        public MembershipDetails(int memberid = -1 , int memshipId = -1)
         {
             _memberId = memberid;
+            _memshipId = memshipId;
             InitializeComponent();
             
         }
@@ -28,23 +30,20 @@ namespace GMM.forms
 
         private void MembershipDetails_Load(object sender, EventArgs e)
         {
-            if (_memberId == -1)
-            {
-                // TODO: This line of code loads data into the 'dataDataSet.members' table. You can move, or remove it, as needed.
-                this.membersTableAdapter.Fill(this.dataDataSet.members);
+            // TODO: This line of code loads data into the 'dataDataSet.members' table. You can move, or remove it, as needed.
+            this.membersTableAdapter.Fill(this.dataDataSet.members);
             // TODO: This line of code loads data into the 'dataDataSet.memberships' table. You can move, or remove it, as needed.
             this.membershipsTableAdapter.Fill(this.dataDataSet.memberships);
-                membershipsBindingSource.AddNew();
-
-             
+            if (_memshipId == -1)
+            {
+                membershipsBindingSource.AddNew(); 
             }
             else
             {
-                this.membersTableAdapter.Fill(this.dataDataSet.members);
-                membershipsBindingSource.AddNew();
-                
+                membershipsBindingSource.Position = membershipsBindingSource.Find("ID", _memshipId);
             }
-           
+
+
         }
         
         private void mambershipDaysSpinEdit_EditValueChanged(object sender, EventArgs e)
@@ -109,16 +108,35 @@ namespace GMM.forms
         
         private void MembershipDetails_Shown(object sender, EventArgs e)
         {
+            if( _memshipId != -1) return;
             if (_memberId != -1)
             {
                 nameSpinEdit.EditValue = _memberId;
                 nameSpinEdit.ReadOnly = true;
 
             }
-            DateTime ST = membershipStartDateDateEdit.DateTime;
-            membershipEndDateDateEdit.DateTime = ST.AddDays((int)mambershipDaysSpinEdit.Value);
-            membershipStartDateDateEdit.DateTime = DateTime.Today;
-            mambershipDaysSpinEdit.Value = 30;
+            
+
+            //var enddate = membershipsTableAdapter.GetData().FirstOrDefault(x => x.Mname == _memberId)?.MembershipEndDate;
+            var enddate = membershipsTableAdapter.GetData().Where(x => x.Mname == _memberId)?
+                .OrderByDescending(qw => qw.MembershipEndDate).FirstOrDefault();
+
+            if (enddate != null && !enddate.IsMembershipEndDateNull())
+            {
+                membershipStartDateDateEdit.DateTime = enddate.MembershipEndDate.AddDays(1);
+                mambershipDaysSpinEdit.Value = enddate.MambershipDays;
+                membershipEndDateDateEdit.DateTime = enddate.MembershipEndDate.AddDays(enddate.MambershipDays + 1);
+            }
+            else
+            {
+                var st = DateTime.Today;
+                membershipStartDateDateEdit.DateTime = st;
+                membershipEndDateDateEdit.DateTime = st.AddDays(30);
+                mambershipDaysSpinEdit.Value = 30;
+            }
+
+
+
         }
     }
     

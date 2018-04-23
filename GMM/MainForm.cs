@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using DevExpress.Skins;
 using DevExpress.Utils.Extensions;
 using DevExpress.XtraReports.UI;
 using Gma.System.MouseKeyHook;
@@ -87,6 +88,13 @@ namespace GMM
                 checkin.Show();
             }
         }
-    
+
+        private void الاشتراكات_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {var notrenewed = new notrenewed();
+            notrenewed.ShowRibbonPreview();
+
+        }
+
+      
     }
 }

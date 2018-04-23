@@ -379,6 +379,8 @@ namespace GMM {
             
             private global::System.Data.DataColumn columnBarecode;
             
+            private global::System.Data.DataColumn columnIsDeactivated;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public membersDataTable() {
@@ -478,6 +480,14 @@ namespace GMM {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn IsDeactivatedColumn {
+                get {
+                    return this.columnIsDeactivated;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -513,7 +523,7 @@ namespace GMM {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public membersRow AddmembersRow(string name, System.DateTime dateofbirth, string phonenumber, string AlternatePhoneNumber, string Adress, string Picture, string Barecode) {
+            public membersRow AddmembersRow(string name, System.DateTime dateofbirth, string phonenumber, string AlternatePhoneNumber, string Adress, string Picture, string Barecode, bool IsDeactivated) {
                 membersRow rowmembersRow = ((membersRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -523,7 +533,8 @@ namespace GMM {
                         AlternatePhoneNumber,
                         Adress,
                         Picture,
-                        Barecode};
+                        Barecode,
+                        IsDeactivated};
                 rowmembersRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowmembersRow);
                 return rowmembersRow;
@@ -561,6 +572,7 @@ namespace GMM {
                 this.columnAdress = base.Columns["Adress"];
                 this.columnPicture = base.Columns["Picture"];
                 this.columnBarecode = base.Columns["Barecode"];
+                this.columnIsDeactivated = base.Columns["IsDeactivated"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -582,6 +594,8 @@ namespace GMM {
                 base.Columns.Add(this.columnPicture);
                 this.columnBarecode = new global::System.Data.DataColumn("Barecode", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnBarecode);
+                this.columnIsDeactivated = new global::System.Data.DataColumn("IsDeactivated", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnIsDeactivated);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnID}, true));
                 this.columnID.AutoIncrement = true;
@@ -752,6 +766,8 @@ namespace GMM {
             
             private global::System.Data.DataColumn columnMname;
             
+            private global::System.Data.DataColumn columnIsCanceled;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public membershipsDataTable() {
@@ -851,6 +867,14 @@ namespace GMM {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn IsCanceledColumn {
+                get {
+                    return this.columnIsCanceled;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -886,7 +910,7 @@ namespace GMM {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public membershipsRow AddmembershipsRow(System.DateTime MembershipStartDate, short MambershipDays, System.DateTime MembershipEndDate, int MembershipPrice, int AmountPaided, int AmountRemaining, membersRow parentmembersRowByالمشتركينmemberships) {
+            public membershipsRow AddmembershipsRow(System.DateTime MembershipStartDate, short MambershipDays, System.DateTime MembershipEndDate, int MembershipPrice, int AmountPaided, int AmountRemaining, membersRow parentmembersRowByالمشتركينmemberships, bool IsCanceled) {
                 membershipsRow rowmembershipsRow = ((membershipsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -896,7 +920,8 @@ namespace GMM {
                         MembershipPrice,
                         AmountPaided,
                         AmountRemaining,
-                        null};
+                        null,
+                        IsCanceled};
                 if ((parentmembersRowByالمشتركينmemberships != null)) {
                     columnValuesArray[7] = parentmembersRowByالمشتركينmemberships[0];
                 }
@@ -937,6 +962,7 @@ namespace GMM {
                 this.columnAmountPaided = base.Columns["AmountPaided"];
                 this.columnAmountRemaining = base.Columns["AmountRemaining"];
                 this.columnMname = base.Columns["Mname"];
+                this.columnIsCanceled = base.Columns["IsCanceled"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -958,6 +984,8 @@ namespace GMM {
                 base.Columns.Add(this.columnAmountRemaining);
                 this.columnMname = new global::System.Data.DataColumn("Mname", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnMname);
+                this.columnIsCanceled = new global::System.Data.DataColumn("IsCanceled", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnIsCanceled);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnID}, true));
                 this.columnID.AutoIncrement = true;
@@ -1530,6 +1558,22 @@ namespace GMM {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsDeactivated {
+                get {
+                    try {
+                        return ((bool)(this[this.tablemembers.IsDeactivatedColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'IsDeactivated\' in table \'members\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablemembers.IsDeactivatedColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsnameNull() {
                 return this.IsNull(this.tablemembers.nameColumn);
             }
@@ -1610,6 +1654,18 @@ namespace GMM {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetBarecodeNull() {
                 this[this.tablemembers.BarecodeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsIsDeactivatedNull() {
+                return this.IsNull(this.tablemembers.IsDeactivatedColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetIsDeactivatedNull() {
+                this[this.tablemembers.IsDeactivatedColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1774,6 +1830,22 @@ namespace GMM {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsCanceled {
+                get {
+                    try {
+                        return ((bool)(this[this.tablememberships.IsCanceledColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'IsCanceled\' in table \'memberships\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablememberships.IsCanceledColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public membersRow membersRow {
                 get {
                     return ((membersRow)(this.GetParentRow(this.Table.ParentRelations["المشتركينmemberships"])));
@@ -1865,6 +1937,18 @@ namespace GMM {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetMnameNull() {
                 this[this.tablememberships.MnameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsIsCanceledNull() {
+                return this.IsNull(this.tablememberships.IsCanceledColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetIsCanceledNull() {
+                this[this.tablememberships.IsCanceledColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -2196,10 +2280,11 @@ namespace GMM.dataDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("Adress", "Adress");
             tableMapping.ColumnMappings.Add("Picture", "Picture");
             tableMapping.ColumnMappings.Add("Barecode", "Barecode");
+            tableMapping.ColumnMappings.Add("IsDeactivated", "IsDeactivated");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.OleDb.OleDbCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM `members` WHERE ((`ID` = ?) AND ((? = 1 AND `name` IS NULL) OR (`name` = ?)) AND ((? = 1 AND `dateofbirth` IS NULL) OR (`dateofbirth` = ?)) AND ((? = 1 AND `phonenumber` IS NULL) OR (`phonenumber` = ?)) AND ((? = 1 AND `AlternatePhoneNumber` IS NULL) OR (`AlternatePhoneNumber` = ?)) AND ((? = 1 AND `Adress` IS NULL) OR (`Adress` = ?)) AND ((? = 1 AND `Barecode` IS NULL) OR (`Barecode` = ?)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM `members` WHERE ((`ID` = ?) AND ((? = 1 AND `name` IS NULL) OR (`name` = ?)) AND ((? = 1 AND `dateofbirth` IS NULL) OR (`dateofbirth` = ?)) AND ((? = 1 AND `phonenumber` IS NULL) OR (`phonenumber` = ?)) AND ((? = 1 AND `AlternatePhoneNumber` IS NULL) OR (`AlternatePhoneNumber` = ?)) AND ((? = 1 AND `Adress` IS NULL) OR (`Adress` = ?)) AND ((? = 1 AND `Barecode` IS NULL) OR (`Barecode` = ?)) AND ((? = 1 AND `IsDeactivated` IS NULL) OR (`IsDeactivated` = ?)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_ID", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ID", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_name", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "name", global::System.Data.DataRowVersion.Original, true, null));
@@ -2214,10 +2299,13 @@ namespace GMM.dataDataSetTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_Adress", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Adress", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_Barecode", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Barecode", global::System.Data.DataRowVersion.Original, true, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_Barecode", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Barecode", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_IsDeactivated", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "IsDeactivated", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_IsDeactivated", global::System.Data.OleDb.OleDbType.Boolean, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "IsDeactivated", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.InsertCommand = new global::System.Data.OleDb.OleDbCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
             this._adapter.InsertCommand.CommandText = "INSERT INTO `members` (`name`, `dateofbirth`, `phonenumber`, `AlternatePhoneNumbe" +
-                "r`, `Adress`, `Picture`, `Barecode`) VALUES (?, ?, ?, ?, ?, ?, ?)";
+                "r`, `Adress`, `Picture`, `Barecode`, `IsDeactivated`) VALUES (?, ?, ?, ?, ?, ?, " +
+                "?, ?)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("name", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "name", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("dateofbirth", global::System.Data.OleDb.OleDbType.Date, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "dateofbirth", global::System.Data.DataRowVersion.Current, false, null));
@@ -2226,9 +2314,10 @@ namespace GMM.dataDataSetTableAdapters {
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Adress", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Adress", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Picture", global::System.Data.OleDb.OleDbType.LongVarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Picture", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Barecode", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Barecode", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsDeactivated", global::System.Data.OleDb.OleDbType.Boolean, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "IsDeactivated", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand = new global::System.Data.OleDb.OleDbCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE `members` SET `name` = ?, `dateofbirth` = ?, `phonenumber` = ?, `AlternatePhoneNumber` = ?, `Adress` = ?, `Picture` = ?, `Barecode` = ? WHERE ((`ID` = ?) AND ((? = 1 AND `name` IS NULL) OR (`name` = ?)) AND ((? = 1 AND `dateofbirth` IS NULL) OR (`dateofbirth` = ?)) AND ((? = 1 AND `phonenumber` IS NULL) OR (`phonenumber` = ?)) AND ((? = 1 AND `AlternatePhoneNumber` IS NULL) OR (`AlternatePhoneNumber` = ?)) AND ((? = 1 AND `Adress` IS NULL) OR (`Adress` = ?)) AND ((? = 1 AND `Barecode` IS NULL) OR (`Barecode` = ?)))";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE `members` SET `name` = ?, `dateofbirth` = ?, `phonenumber` = ?, `AlternatePhoneNumber` = ?, `Adress` = ?, `Picture` = ?, `Barecode` = ?, `IsDeactivated` = ? WHERE ((`ID` = ?) AND ((? = 1 AND `name` IS NULL) OR (`name` = ?)) AND ((? = 1 AND `dateofbirth` IS NULL) OR (`dateofbirth` = ?)) AND ((? = 1 AND `phonenumber` IS NULL) OR (`phonenumber` = ?)) AND ((? = 1 AND `AlternatePhoneNumber` IS NULL) OR (`AlternatePhoneNumber` = ?)) AND ((? = 1 AND `Adress` IS NULL) OR (`Adress` = ?)) AND ((? = 1 AND `Barecode` IS NULL) OR (`Barecode` = ?)) AND ((? = 1 AND `IsDeactivated` IS NULL) OR (`IsDeactivated` = ?)))";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("name", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "name", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("dateofbirth", global::System.Data.OleDb.OleDbType.Date, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "dateofbirth", global::System.Data.DataRowVersion.Current, false, null));
@@ -2237,6 +2326,7 @@ namespace GMM.dataDataSetTableAdapters {
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Adress", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Adress", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Picture", global::System.Data.OleDb.OleDbType.LongVarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Picture", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Barecode", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Barecode", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsDeactivated", global::System.Data.OleDb.OleDbType.Boolean, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "IsDeactivated", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_ID", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ID", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_name", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "name", global::System.Data.DataRowVersion.Original, true, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_name", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "name", global::System.Data.DataRowVersion.Original, false, null));
@@ -2250,6 +2340,8 @@ namespace GMM.dataDataSetTableAdapters {
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_Adress", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Adress", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_Barecode", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Barecode", global::System.Data.DataRowVersion.Original, true, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_Barecode", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Barecode", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_IsDeactivated", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "IsDeactivated", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_IsDeactivated", global::System.Data.OleDb.OleDbType.Boolean, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "IsDeactivated", global::System.Data.DataRowVersion.Original, false, null));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2266,12 +2358,12 @@ namespace GMM.dataDataSetTableAdapters {
             this._commandCollection[0] = new global::System.Data.OleDb.OleDbCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT ID, name, dateofbirth, phonenumber, AlternatePhoneNumber, Adress, Picture," +
-                " Barecode FROM members";
+                " Barecode, IsDeactivated FROM members";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.OleDb.OleDbCommand();
             this._commandCollection[1].Connection = this.Connection;
             this._commandCollection[1].CommandText = "SELECT ID, name, dateofbirth, phonenumber, AlternatePhoneNumber, Adress, Picture," +
-                " Barecode\r\nFROM     members\r\nWHERE  (ID = ?)";
+                " Barecode, IsDeactivated FROM members WHERE (ID = ?)";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("ID", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ID", global::System.Data.DataRowVersion.Current, false, null));
             this._commandCollection[2] = new global::System.Data.OleDb.OleDbCommand();
@@ -2364,7 +2456,7 @@ namespace GMM.dataDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_ID, string Original_name, global::System.Nullable<global::System.DateTime> Original_dateofbirth, string Original_phonenumber, string Original_AlternatePhoneNumber, string Original_Adress, string Original_Barecode) {
+        public virtual int Delete(int Original_ID, string Original_name, global::System.Nullable<global::System.DateTime> Original_dateofbirth, string Original_phonenumber, string Original_AlternatePhoneNumber, string Original_Adress, string Original_Barecode, bool Original_IsDeactivated) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_ID));
             if ((Original_name == null)) {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
@@ -2414,6 +2506,8 @@ namespace GMM.dataDataSetTableAdapters {
                 this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(0));
                 this.Adapter.DeleteCommand.Parameters[12].Value = ((string)(Original_Barecode));
             }
+            this.Adapter.DeleteCommand.Parameters[13].Value = ((object)(0));
+            this.Adapter.DeleteCommand.Parameters[14].Value = ((bool)(Original_IsDeactivated));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -2434,7 +2528,7 @@ namespace GMM.dataDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string name, global::System.Nullable<global::System.DateTime> dateofbirth, string phonenumber, string AlternatePhoneNumber, string Adress, string Picture, string Barecode) {
+        public virtual int Insert(string name, global::System.Nullable<global::System.DateTime> dateofbirth, string phonenumber, string AlternatePhoneNumber, string Adress, string Picture, string Barecode, bool IsDeactivated) {
             if ((name == null)) {
                 this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
@@ -2477,6 +2571,7 @@ namespace GMM.dataDataSetTableAdapters {
             else {
                 this.Adapter.InsertCommand.Parameters[6].Value = ((string)(Barecode));
             }
+            this.Adapter.InsertCommand.Parameters[7].Value = ((bool)(IsDeactivated));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -2497,7 +2592,23 @@ namespace GMM.dataDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string name, global::System.Nullable<global::System.DateTime> dateofbirth, string phonenumber, string AlternatePhoneNumber, string Adress, string Picture, string Barecode, int Original_ID, string Original_name, global::System.Nullable<global::System.DateTime> Original_dateofbirth, string Original_phonenumber, string Original_AlternatePhoneNumber, string Original_Adress, string Original_Barecode) {
+        public virtual int Update(
+                    string name, 
+                    global::System.Nullable<global::System.DateTime> dateofbirth, 
+                    string phonenumber, 
+                    string AlternatePhoneNumber, 
+                    string Adress, 
+                    string Picture, 
+                    string Barecode, 
+                    bool IsDeactivated, 
+                    int Original_ID, 
+                    string Original_name, 
+                    global::System.Nullable<global::System.DateTime> Original_dateofbirth, 
+                    string Original_phonenumber, 
+                    string Original_AlternatePhoneNumber, 
+                    string Original_Adress, 
+                    string Original_Barecode, 
+                    bool Original_IsDeactivated) {
             if ((name == null)) {
                 this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
@@ -2540,55 +2651,58 @@ namespace GMM.dataDataSetTableAdapters {
             else {
                 this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(Barecode));
             }
-            this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(Original_ID));
+            this.Adapter.UpdateCommand.Parameters[7].Value = ((bool)(IsDeactivated));
+            this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(Original_ID));
             if ((Original_name == null)) {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(Original_name));
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(Original_name));
             }
             if ((Original_dateofbirth.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((System.DateTime)(Original_dateofbirth.Value));
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((System.DateTime)(Original_dateofbirth.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
             }
             if ((Original_phonenumber == null)) {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[14].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((string)(Original_phonenumber));
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((string)(Original_phonenumber));
             }
             if ((Original_AlternatePhoneNumber == null)) {
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[15].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[16].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((string)(Original_AlternatePhoneNumber));
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((string)(Original_AlternatePhoneNumber));
             }
             if ((Original_Adress == null)) {
-                this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[17].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[18].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[17].Value = ((string)(Original_Adress));
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[18].Value = ((string)(Original_Adress));
             }
             if ((Original_Barecode == null)) {
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[19].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[19].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[20].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[19].Value = ((string)(Original_Barecode));
+                this.Adapter.UpdateCommand.Parameters[19].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[20].Value = ((string)(Original_Barecode));
             }
+            this.Adapter.UpdateCommand.Parameters[21].Value = ((object)(0));
+            this.Adapter.UpdateCommand.Parameters[22].Value = ((bool)(Original_IsDeactivated));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -2769,10 +2883,11 @@ namespace GMM.dataDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("AmountPaided", "AmountPaided");
             tableMapping.ColumnMappings.Add("AmountRemaining", "AmountRemaining");
             tableMapping.ColumnMappings.Add("Mname", "Mname");
+            tableMapping.ColumnMappings.Add("IsCanceled", "IsCanceled");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.OleDb.OleDbCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM `memberships` WHERE ((`ID` = ?) AND ((? = 1 AND `MembershipStartDate` IS NULL) OR (`MembershipStartDate` = ?)) AND ((? = 1 AND `MambershipDays` IS NULL) OR (`MambershipDays` = ?)) AND ((? = 1 AND `MembershipEndDate` IS NULL) OR (`MembershipEndDate` = ?)) AND ((? = 1 AND `MembershipPrice` IS NULL) OR (`MembershipPrice` = ?)) AND ((? = 1 AND `AmountPaided` IS NULL) OR (`AmountPaided` = ?)) AND ((? = 1 AND `AmountRemaining` IS NULL) OR (`AmountRemaining` = ?)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM `memberships` WHERE ((`ID` = ?) AND ((? = 1 AND `MembershipStartDate` IS NULL) OR (`MembershipStartDate` = ?)) AND ((? = 1 AND `MambershipDays` IS NULL) OR (`MambershipDays` = ?)) AND ((? = 1 AND `MembershipEndDate` IS NULL) OR (`MembershipEndDate` = ?)) AND ((? = 1 AND `MembershipPrice` IS NULL) OR (`MembershipPrice` = ?)) AND ((? = 1 AND `AmountPaided` IS NULL) OR (`AmountPaided` = ?)) AND ((? = 1 AND `AmountRemaining` IS NULL) OR (`AmountRemaining` = ?)) AND ((? = 1 AND `Mname` IS NULL) OR (`Mname` = ?)) AND ((? = 1 AND `IsCanceled` IS NULL) OR (`IsCanceled` = ?)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_ID", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ID", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_MembershipStartDate", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "MembershipStartDate", global::System.Data.DataRowVersion.Original, true, null));
@@ -2787,11 +2902,15 @@ namespace GMM.dataDataSetTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_AmountPaided", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "AmountPaided", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_AmountRemaining", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "AmountRemaining", global::System.Data.DataRowVersion.Original, true, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_AmountRemaining", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "AmountRemaining", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_Mname", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Mname", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_Mname", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Mname", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_IsCanceled", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "IsCanceled", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_IsCanceled", global::System.Data.OleDb.OleDbType.Boolean, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "IsCanceled", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.InsertCommand = new global::System.Data.OleDb.OleDbCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
             this._adapter.InsertCommand.CommandText = "INSERT INTO `memberships` (`MembershipStartDate`, `MambershipDays`, `MembershipEn" +
-                "dDate`, `MembershipPrice`, `AmountPaided`, `AmountRemaining`, `Mname`) VALUES (?" +
-                ", ?, ?, ?, ?, ?, ?)";
+                "dDate`, `MembershipPrice`, `AmountPaided`, `AmountRemaining`, `Mname`, `IsCancel" +
+                "ed`) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("MembershipStartDate", global::System.Data.OleDb.OleDbType.Date, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "MembershipStartDate", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("MambershipDays", global::System.Data.OleDb.OleDbType.SmallInt, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "MambershipDays", global::System.Data.DataRowVersion.Current, false, null));
@@ -2799,10 +2918,11 @@ namespace GMM.dataDataSetTableAdapters {
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("MembershipPrice", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "MembershipPrice", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("AmountPaided", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "AmountPaided", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("AmountRemaining", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "AmountRemaining", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Mname", global::System.Data.OleDb.OleDbType.LongVarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Mname", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Mname", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Mname", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsCanceled", global::System.Data.OleDb.OleDbType.Boolean, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "IsCanceled", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand = new global::System.Data.OleDb.OleDbCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE `memberships` SET `MembershipStartDate` = ?, `MambershipDays` = ?, `MembershipEndDate` = ?, `MembershipPrice` = ?, `AmountPaided` = ?, `AmountRemaining` = ?, `Mname` = ? WHERE ((`ID` = ?) AND ((? = 1 AND `MembershipStartDate` IS NULL) OR (`MembershipStartDate` = ?)) AND ((? = 1 AND `MambershipDays` IS NULL) OR (`MambershipDays` = ?)) AND ((? = 1 AND `MembershipEndDate` IS NULL) OR (`MembershipEndDate` = ?)) AND ((? = 1 AND `MembershipPrice` IS NULL) OR (`MembershipPrice` = ?)) AND ((? = 1 AND `AmountPaided` IS NULL) OR (`AmountPaided` = ?)) AND ((? = 1 AND `AmountRemaining` IS NULL) OR (`AmountRemaining` = ?)))";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE `memberships` SET `MembershipStartDate` = ?, `MambershipDays` = ?, `MembershipEndDate` = ?, `MembershipPrice` = ?, `AmountPaided` = ?, `AmountRemaining` = ?, `Mname` = ?, `IsCanceled` = ? WHERE ((`ID` = ?) AND ((? = 1 AND `MembershipStartDate` IS NULL) OR (`MembershipStartDate` = ?)) AND ((? = 1 AND `MambershipDays` IS NULL) OR (`MambershipDays` = ?)) AND ((? = 1 AND `MembershipEndDate` IS NULL) OR (`MembershipEndDate` = ?)) AND ((? = 1 AND `MembershipPrice` IS NULL) OR (`MembershipPrice` = ?)) AND ((? = 1 AND `AmountPaided` IS NULL) OR (`AmountPaided` = ?)) AND ((? = 1 AND `AmountRemaining` IS NULL) OR (`AmountRemaining` = ?)) AND ((? = 1 AND `Mname` IS NULL) OR (`Mname` = ?)) AND ((? = 1 AND `IsCanceled` IS NULL) OR (`IsCanceled` = ?)))";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("MembershipStartDate", global::System.Data.OleDb.OleDbType.Date, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "MembershipStartDate", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("MambershipDays", global::System.Data.OleDb.OleDbType.SmallInt, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "MambershipDays", global::System.Data.DataRowVersion.Current, false, null));
@@ -2810,7 +2930,8 @@ namespace GMM.dataDataSetTableAdapters {
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("MembershipPrice", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "MembershipPrice", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("AmountPaided", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "AmountPaided", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("AmountRemaining", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "AmountRemaining", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Mname", global::System.Data.OleDb.OleDbType.LongVarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Mname", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Mname", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Mname", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsCanceled", global::System.Data.OleDb.OleDbType.Boolean, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "IsCanceled", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_ID", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ID", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_MembershipStartDate", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "MembershipStartDate", global::System.Data.DataRowVersion.Original, true, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_MembershipStartDate", global::System.Data.OleDb.OleDbType.Date, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "MembershipStartDate", global::System.Data.DataRowVersion.Original, false, null));
@@ -2824,6 +2945,10 @@ namespace GMM.dataDataSetTableAdapters {
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_AmountPaided", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "AmountPaided", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_AmountRemaining", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "AmountRemaining", global::System.Data.DataRowVersion.Original, true, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_AmountRemaining", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "AmountRemaining", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_Mname", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Mname", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_Mname", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Mname", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_IsCanceled", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "IsCanceled", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_IsCanceled", global::System.Data.OleDb.OleDbType.Boolean, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "IsCanceled", global::System.Data.DataRowVersion.Original, false, null));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2840,13 +2965,13 @@ namespace GMM.dataDataSetTableAdapters {
             this._commandCollection[0] = new global::System.Data.OleDb.OleDbCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT ID, MembershipStartDate, MambershipDays, MembershipEndDate, MembershipPric" +
-                "e, AmountPaided, AmountRemaining, Mname FROM memberships";
+                "e, AmountPaided, AmountRemaining, Mname, IsCanceled FROM memberships";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.OleDb.OleDbCommand();
             this._commandCollection[1].Connection = this.Connection;
             this._commandCollection[1].CommandText = "SELECT AmountPaided, AmountRemaining, ID, MambershipDays, MembershipEndDate, Memb" +
-                "ershipPrice, MembershipStartDate, Mname\r\nFROM     memberships\r\nORDER BY Membersh" +
-                "ipEndDate DESC";
+                "ershipPrice, MembershipStartDate, Mname, IsCanceled FROM memberships ORDER BY Me" +
+                "mbershipEndDate DESC";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -2920,7 +3045,7 @@ namespace GMM.dataDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_ID, global::System.Nullable<global::System.DateTime> Original_MembershipStartDate, global::System.Nullable<short> Original_MambershipDays, global::System.Nullable<global::System.DateTime> Original_MembershipEndDate, global::System.Nullable<int> Original_MembershipPrice, global::System.Nullable<int> Original_AmountPaided, global::System.Nullable<int> Original_AmountRemaining) {
+        public virtual int Delete(int Original_ID, global::System.Nullable<global::System.DateTime> Original_MembershipStartDate, global::System.Nullable<short> Original_MambershipDays, global::System.Nullable<global::System.DateTime> Original_MembershipEndDate, global::System.Nullable<int> Original_MembershipPrice, global::System.Nullable<int> Original_AmountPaided, global::System.Nullable<int> Original_AmountRemaining, global::System.Nullable<int> Original_Mname, bool Original_IsCanceled) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_ID));
             if ((Original_MembershipStartDate.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
@@ -2970,6 +3095,16 @@ namespace GMM.dataDataSetTableAdapters {
                 this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[12].Value = global::System.DBNull.Value;
             }
+            if ((Original_Mname.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[13].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[14].Value = ((int)(Original_Mname.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[13].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[14].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.DeleteCommand.Parameters[15].Value = ((object)(0));
+            this.Adapter.DeleteCommand.Parameters[16].Value = ((bool)(Original_IsCanceled));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -2990,7 +3125,7 @@ namespace GMM.dataDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(global::System.Nullable<global::System.DateTime> MembershipStartDate, global::System.Nullable<short> MambershipDays, global::System.Nullable<global::System.DateTime> MembershipEndDate, global::System.Nullable<int> MembershipPrice, global::System.Nullable<int> AmountPaided, global::System.Nullable<int> AmountRemaining, string Mname) {
+        public virtual int Insert(global::System.Nullable<global::System.DateTime> MembershipStartDate, global::System.Nullable<short> MambershipDays, global::System.Nullable<global::System.DateTime> MembershipEndDate, global::System.Nullable<int> MembershipPrice, global::System.Nullable<int> AmountPaided, global::System.Nullable<int> AmountRemaining, global::System.Nullable<int> Mname, bool IsCanceled) {
             if ((MembershipStartDate.HasValue == true)) {
                 this.Adapter.InsertCommand.Parameters[0].Value = ((System.DateTime)(MembershipStartDate.Value));
             }
@@ -3027,12 +3162,13 @@ namespace GMM.dataDataSetTableAdapters {
             else {
                 this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
             }
-            if ((Mname == null)) {
-                this.Adapter.InsertCommand.Parameters[6].Value = global::System.DBNull.Value;
+            if ((Mname.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[6].Value = ((int)(Mname.Value));
             }
             else {
-                this.Adapter.InsertCommand.Parameters[6].Value = ((string)(Mname));
+                this.Adapter.InsertCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
+            this.Adapter.InsertCommand.Parameters[7].Value = ((bool)(IsCanceled));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -3053,7 +3189,24 @@ namespace GMM.dataDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(global::System.Nullable<global::System.DateTime> MembershipStartDate, global::System.Nullable<short> MambershipDays, global::System.Nullable<global::System.DateTime> MembershipEndDate, global::System.Nullable<int> MembershipPrice, global::System.Nullable<int> AmountPaided, global::System.Nullable<int> AmountRemaining, string Mname, int Original_ID, global::System.Nullable<global::System.DateTime> Original_MembershipStartDate, global::System.Nullable<short> Original_MambershipDays, global::System.Nullable<global::System.DateTime> Original_MembershipEndDate, global::System.Nullable<int> Original_MembershipPrice, global::System.Nullable<int> Original_AmountPaided, global::System.Nullable<int> Original_AmountRemaining) {
+        public virtual int Update(
+                    global::System.Nullable<global::System.DateTime> MembershipStartDate, 
+                    global::System.Nullable<short> MambershipDays, 
+                    global::System.Nullable<global::System.DateTime> MembershipEndDate, 
+                    global::System.Nullable<int> MembershipPrice, 
+                    global::System.Nullable<int> AmountPaided, 
+                    global::System.Nullable<int> AmountRemaining, 
+                    global::System.Nullable<int> Mname, 
+                    bool IsCanceled, 
+                    int Original_ID, 
+                    global::System.Nullable<global::System.DateTime> Original_MembershipStartDate, 
+                    global::System.Nullable<short> Original_MambershipDays, 
+                    global::System.Nullable<global::System.DateTime> Original_MembershipEndDate, 
+                    global::System.Nullable<int> Original_MembershipPrice, 
+                    global::System.Nullable<int> Original_AmountPaided, 
+                    global::System.Nullable<int> Original_AmountRemaining, 
+                    global::System.Nullable<int> Original_Mname, 
+                    bool Original_IsCanceled) {
             if ((MembershipStartDate.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[0].Value = ((System.DateTime)(MembershipStartDate.Value));
             }
@@ -3090,61 +3243,72 @@ namespace GMM.dataDataSetTableAdapters {
             else {
                 this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
             }
-            if ((Mname == null)) {
+            if ((Mname.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(Mname.Value));
+            }
+            else {
                 this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
-            else {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(Mname));
-            }
-            this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(Original_ID));
+            this.Adapter.UpdateCommand.Parameters[7].Value = ((bool)(IsCanceled));
+            this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(Original_ID));
             if ((Original_MembershipStartDate.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((System.DateTime)(Original_MembershipStartDate.Value));
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((System.DateTime)(Original_MembershipStartDate.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
             }
             if ((Original_MambershipDays.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((short)(Original_MambershipDays.Value));
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((short)(Original_MambershipDays.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
             }
             if ((Original_MembershipEndDate.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((System.DateTime)(Original_MembershipEndDate.Value));
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((System.DateTime)(Original_MembershipEndDate.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[14].Value = global::System.DBNull.Value;
             }
             if ((Original_MembershipPrice.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((int)(Original_MembershipPrice.Value));
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((int)(Original_MembershipPrice.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[15].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[16].Value = global::System.DBNull.Value;
             }
             if ((Original_AmountPaided.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[17].Value = ((int)(Original_AmountPaided.Value));
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[18].Value = ((int)(Original_AmountPaided.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[17].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[18].Value = global::System.DBNull.Value;
             }
             if ((Original_AmountRemaining.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[19].Value = ((int)(Original_AmountRemaining.Value));
+                this.Adapter.UpdateCommand.Parameters[19].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[20].Value = ((int)(Original_AmountRemaining.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[19].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[19].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[20].Value = global::System.DBNull.Value;
             }
+            if ((Original_Mname.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[21].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[22].Value = ((int)(Original_Mname.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[21].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[22].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.UpdateCommand.Parameters[23].Value = ((object)(0));
+            this.Adapter.UpdateCommand.Parameters[24].Value = ((bool)(Original_IsCanceled));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {

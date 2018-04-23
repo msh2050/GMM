@@ -29,27 +29,31 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MembersList));
             DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MembersList));
             DevExpress.XtraEditors.TableLayout.TableColumnDefinition tableColumnDefinition1 = new DevExpress.XtraEditors.TableLayout.TableColumnDefinition();
             DevExpress.XtraEditors.TableLayout.TableColumnDefinition tableColumnDefinition2 = new DevExpress.XtraEditors.TableLayout.TableColumnDefinition();
             DevExpress.XtraEditors.TableLayout.TableColumnDefinition tableColumnDefinition3 = new DevExpress.XtraEditors.TableLayout.TableColumnDefinition();
             DevExpress.XtraEditors.TableLayout.TableRowDefinition tableRowDefinition1 = new DevExpress.XtraEditors.TableLayout.TableRowDefinition();
             DevExpress.XtraEditors.TableLayout.TableRowDefinition tableRowDefinition2 = new DevExpress.XtraEditors.TableLayout.TableRowDefinition();
             DevExpress.XtraEditors.TableLayout.TableRowDefinition tableRowDefinition3 = new DevExpress.XtraEditors.TableLayout.TableRowDefinition();
+            DevExpress.XtraEditors.TableLayout.TableRowDefinition tableRowDefinition4 = new DevExpress.XtraEditors.TableLayout.TableRowDefinition();
             DevExpress.XtraEditors.TableLayout.TableSpan tableSpan1 = new DevExpress.XtraEditors.TableLayout.TableSpan();
             DevExpress.XtraEditors.TableLayout.TableSpan tableSpan2 = new DevExpress.XtraEditors.TableLayout.TableSpan();
             DevExpress.XtraEditors.TableLayout.TableSpan tableSpan3 = new DevExpress.XtraEditors.TableLayout.TableSpan();
+            DevExpress.XtraEditors.TableLayout.TableSpan tableSpan4 = new DevExpress.XtraEditors.TableLayout.TableSpan();
             DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement1 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
             DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement2 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
             DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement3 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
             DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement4 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
             DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement5 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
             DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement6 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
+            DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement7 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
+            DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement8 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
             this.colname = new DevExpress.XtraGrid.Columns.TileViewColumn();
             this.coldateofbirth = new DevExpress.XtraGrid.Columns.TileViewColumn();
             this.colphonenumber = new DevExpress.XtraGrid.Columns.TileViewColumn();
@@ -66,13 +70,14 @@
             this.repositoryItemTextEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.barEditItem2 = new DevExpress.XtraBars.BarEditItem();
             this.repositoryItemButtonEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
-            this.repositoryItemTextEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
+            this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.repositoryItemGridLookUpEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemGridLookUpEdit();
             this.repositoryItemGridLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.repositoryItemTextEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.membersTableAdapter1 = new GMM.dataDataSetTableAdapters.membersTableAdapter();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
@@ -80,17 +85,20 @@
             this.colID = new DevExpress.XtraGrid.Columns.TileViewColumn();
             this.repositoryItemPictureEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemPictureEdit();
             this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
+            this.popupMenu1 = new DevExpress.XtraBars.PopupMenu(this.components);
+            this.memcheckTableAdapter1 = new GMM.dataDataSetTableAdapters.memcheckTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.membersBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataDataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemGridLookUpEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemGridLookUpEdit1View)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tileView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemPictureEdit1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.popupMenu1)).BeginInit();
             this.SuspendLayout();
             // 
             // colname
@@ -137,10 +145,11 @@
             this.bbiDelete,
             this.bbiRefresh,
             this.barEditItem1,
-            this.barEditItem2});
+            this.barEditItem2,
+            this.barButtonItem2});
             this.ribbonControl.Location = new System.Drawing.Point(0, 0);
             this.ribbonControl.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.ribbonControl.MaxItemId = 3;
+            this.ribbonControl.MaxItemId = 4;
             this.ribbonControl.Name = "ribbonControl";
             this.ribbonControl.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1});
@@ -205,7 +214,6 @@
             this.barEditItem1.Caption = "بحث";
             this.barEditItem1.Edit = this.repositoryItemTextEdit1;
             this.barEditItem1.Id = 21;
-            this.barEditItem1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barEditItem1.ImageOptions.Image")));
             this.barEditItem1.ItemShortcut = new DevExpress.XtraBars.BarShortcut((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F));
             this.barEditItem1.Name = "barEditItem1";
             // 
@@ -231,13 +239,12 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "بحث", -1, true, true, true, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.repositoryItemButtonEdit1.Name = "repositoryItemButtonEdit1";
             // 
-            // repositoryItemTextEdit2
+            // barButtonItem2
             // 
-            this.repositoryItemTextEdit2.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("repositoryItemTextEdit2.Appearance.Image")));
-            this.repositoryItemTextEdit2.Appearance.Options.UseImage = true;
-            this.repositoryItemTextEdit2.Appearance.Options.UseTextOptions = true;
-            this.repositoryItemTextEdit2.AutoHeight = false;
-            this.repositoryItemTextEdit2.Name = "repositoryItemTextEdit2";
+            this.barButtonItem2.Caption = "تسجيل الدخول";
+            this.barButtonItem2.Id = 3;
+            this.barButtonItem2.Name = "barButtonItem2";
+            this.barButtonItem2.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem2_ItemClick);
             // 
             // ribbonPage1
             // 
@@ -288,6 +295,14 @@
             this.repositoryItemGridLookUpEdit1View.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.repositoryItemGridLookUpEdit1View.OptionsView.ShowGroupPanel = false;
             // 
+            // repositoryItemTextEdit2
+            // 
+            this.repositoryItemTextEdit2.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("repositoryItemTextEdit2.Appearance.Image")));
+            this.repositoryItemTextEdit2.Appearance.Options.UseImage = true;
+            this.repositoryItemTextEdit2.Appearance.Options.UseTextOptions = true;
+            this.repositoryItemTextEdit2.AutoHeight = false;
+            this.repositoryItemTextEdit2.Name = "repositoryItemTextEdit2";
+            // 
             // ribbonStatusBar
             // 
             this.ribbonStatusBar.ItemLinks.Add(this.bsiRecordsCount);
@@ -332,6 +347,7 @@
             this.tileView1.OptionsTiles.ColumnCount = 4;
             this.tileView1.OptionsTiles.IndentBetweenGroups = 33;
             this.tileView1.OptionsTiles.IndentBetweenItems = 3;
+            this.tileView1.OptionsTiles.ItemSize = new System.Drawing.Size(276, 136);
             this.tileView1.OptionsTiles.Orientation = System.Windows.Forms.Orientation.Vertical;
             this.tileView1.OptionsTiles.Padding = new System.Windows.Forms.Padding(5);
             this.tileView1.OptionsTiles.RowCount = 4;
@@ -341,14 +357,18 @@
             this.tileView1.TileRows.Add(tableRowDefinition1);
             this.tileView1.TileRows.Add(tableRowDefinition2);
             this.tileView1.TileRows.Add(tableRowDefinition3);
+            this.tileView1.TileRows.Add(tableRowDefinition4);
             tableSpan1.ColumnSpan = 2;
             tableSpan2.ColumnSpan = 2;
             tableSpan2.RowIndex = 1;
             tableSpan3.ColumnSpan = 2;
             tableSpan3.RowIndex = 2;
+            tableSpan4.ColumnSpan = 2;
+            tableSpan4.RowIndex = 3;
             this.tileView1.TileSpans.Add(tableSpan1);
             this.tileView1.TileSpans.Add(tableSpan2);
             this.tileView1.TileSpans.Add(tableSpan3);
+            this.tileView1.TileSpans.Add(tableSpan4);
             tileViewItemElement1.Appearance.Normal.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             tileViewItemElement1.Appearance.Normal.ForeColor = System.Drawing.Color.DodgerBlue;
             tileViewItemElement1.Appearance.Normal.Options.UseFont = true;
@@ -389,12 +409,27 @@
             tileViewItemElement6.RowIndex = 2;
             tileViewItemElement6.Text = "الهاتف";
             tileViewItemElement6.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.BottomLeft;
+            tileViewItemElement7.ColumnIndex = 2;
+            tileViewItemElement7.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            tileViewItemElement7.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
+            tileViewItemElement7.RowIndex = 3;
+            tileViewItemElement7.Text = "كود المشترك";
+            tileViewItemElement7.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.BottomLeft;
+            tileViewItemElement8.Column = this.colID;
+            tileViewItemElement8.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            tileViewItemElement8.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
+            tileViewItemElement8.RowIndex = 3;
+            tileViewItemElement8.Text = "colID";
+            tileViewItemElement8.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.BottomLeft;
             this.tileView1.TileTemplate.Add(tileViewItemElement1);
             this.tileView1.TileTemplate.Add(tileViewItemElement2);
             this.tileView1.TileTemplate.Add(tileViewItemElement3);
             this.tileView1.TileTemplate.Add(tileViewItemElement4);
             this.tileView1.TileTemplate.Add(tileViewItemElement5);
             this.tileView1.TileTemplate.Add(tileViewItemElement6);
+            this.tileView1.TileTemplate.Add(tileViewItemElement7);
+            this.tileView1.TileTemplate.Add(tileViewItemElement8);
+            this.tileView1.ItemRightClick += new DevExpress.XtraGrid.Views.Tile.TileViewItemClickEventHandler(this.tileView1_ItemRightClick_1);
             this.tileView1.DoubleClick += new System.EventHandler(this.tileView1_DoubleClick);
             // 
             // colID
@@ -404,6 +439,8 @@
             this.colID.OptionsColumn.AllowShowHide = false;
             this.colID.OptionsColumn.Printable = DevExpress.Utils.DefaultBoolean.False;
             this.colID.OptionsColumn.ReadOnly = true;
+            this.colID.Visible = true;
+            this.colID.VisibleIndex = 3;
             // 
             // repositoryItemPictureEdit1
             // 
@@ -415,6 +452,16 @@
             this.barButtonItem1.Id = 19;
             this.barButtonItem1.ImageOptions.ImageUri.Uri = "Refresh";
             this.barButtonItem1.Name = "barButtonItem1";
+            // 
+            // popupMenu1
+            // 
+            this.popupMenu1.ItemLinks.Add(this.barButtonItem2);
+            this.popupMenu1.Name = "popupMenu1";
+            this.popupMenu1.Ribbon = this.ribbonControl;
+            // 
+            // memcheckTableAdapter1
+            // 
+            this.memcheckTableAdapter1.ClearBeforeFill = true;
             // 
             // MembersList
             // 
@@ -437,12 +484,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemGridLookUpEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemGridLookUpEdit1View)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tileView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemPictureEdit1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.popupMenu1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -479,5 +527,8 @@
         private DevExpress.XtraGrid.Views.Grid.GridView repositoryItemGridLookUpEdit1View;
         private DevExpress.XtraBars.BarButtonItem barButtonItem1;
         private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit repositoryItemTextEdit2;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem2;
+        private DevExpress.XtraBars.PopupMenu popupMenu1;
+        private dataDataSetTableAdapters.memcheckTableAdapter memcheckTableAdapter1;
     }
 }

@@ -117,34 +117,23 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="membersBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+  <metadata name="sqlDataSource1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
-  <metadata name="dataDataSet1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>236, 17</value>
-  </metadata>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="repositoryItemTextEdit2.Appearance.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m
-        dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAAmdEVYdFRpdGxlAEZpbmQ7QmFycztSaWJib247U3Rh
-        bmRhcmQ7U2VhcmNou2WcCAAAAZ5JREFUWEfFlsFtwlAQREkDOXCmgtRgiWJQ2gjimA5ypIUoNeSUE7VQ
-        gDODvKv53+vv7w/Chyet7JnZwdiGTd/3qxIefCY+dF0XsQMHcAYXcB3gzGM8R83Iq0tK+JAFvIB38Av6
-        Gaihlh7P0CUlfBDzFnyCaFkJeui9qwA/Rb78DxzBHnAB4cxjPKdaem9XQpeU8IEmwEupgV/gTQ0Kzw0a
-        9TAj1Ef4ABNvJv3OGfyq4ghqBq35mLGLtBE+wMQ72kJ4aSc/eQ61g8f8h0gX4QNMfKws4KiiGugR/znS
-        RPgAE59tC9irqAZ6xH+JNBE+wMQXjAVsVVQDPeK/RpoIH2iSgFUKrP4VrH4Trv4YPvRFBHhuEvNrEHnE
-        q/gb+KIpLEPDyL0/RsYHSBbmTBUgXJCXaKFYolSALP1D8pMdMyZLzBUwlvwlO4HqEqMCrWTB1SXMn4S1
-        kAeDqhLmT8Ja0FBhtoT5k7AWLDCgWML8SVgLDCswWcL8o8ClIGyOqMTJ/KPApSCsBi3B2f1JWAsMq4SL
-        b8uJ+ZOwNQgPPo9+8w8imt94911hKQAAAABJRU5ErkJggg==
-</value>
+  <data name="customSqlQuery1.Sql" xml:space="preserve">
+    <value>select [members].[name], [members].[Picture],
+       [members].[ID],
+       [members].[phonenumber],
+       [memberships].[MembershipEndDate]
+  from ([members] [members]
+  inner join [memberships] [memberships]
+       on ([memberships].[Mname] = [members].[ID]))
+where ([memberships].[MembershipEndDate] = (
+(SELECT max([C2].[MembershipEndDate]) FROM [memberships] [C2]
+WHERE [C2].[Mname] = [memberships].[Mname])))
+and ([memberships].[MembershipEndDate] &lt;= NOW())</value>
   </data>
-  <metadata name="membersTableAdapter1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>384, 17</value>
-  </metadata>
-  <metadata name="popupMenu1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>604, 17</value>
-  </metadata>
-  <metadata name="memcheckTableAdapter1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>753, 17</value>
-  </metadata>
+  <data name="sqlDataSource1.ResultSchemaSerializable" xml:space="preserve">
+    <value>PERhdGFTZXQgTmFtZT0ic3FsRGF0YVNvdXJjZTEiPjxWaWV3IE5hbWU9IlF1ZXJ5Ij48RmllbGQgTmFtZT0ibmFtZSIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJQaWN0dXJlIiBUeXBlPSJTdHJpbmciIC8+PEZpZWxkIE5hbWU9IklEIiBUeXBlPSJJbnQzMiIgLz48RmllbGQgTmFtZT0icGhvbmVudW1iZXIiIFR5cGU9IlN0cmluZyIgLz48RmllbGQgTmFtZT0iTWVtYmVyc2hpcEVuZERhdGUiIFR5cGU9IkRhdGVUaW1lIiAvPjwvVmlldz48L0RhdGFTZXQ+</value>
+  </data>
 </root>

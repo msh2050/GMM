@@ -8,6 +8,9 @@ using DevExpress.XtraBars;
 using DevExpress.XtraBars.Ribbon;
 using GMM.helpers;
 using DevExpress.BarCodes;
+using DevExpress.Utils;
+using DevExpress.XtraGrid.Views.Grid;
+using DevExpress.XtraGrid.Views.Grid.ViewInfo;
 using DevExpress.XtraReports.UI;
 using GMM.reports;
 
@@ -151,6 +154,31 @@ namespace GMM.forms
             barCode.CodeText = barecodeTextEdit.Text;
             barCode.CodeBinaryData = Encoding.Default.GetBytes(barCode.CodeText);
             barecodeTextEdit.Text = barCode.CodeText; pictureEdit2.Image = barCode.BarCodeImage;
+        }
+
+        private void gridView1_DoubleClick(object sender, EventArgs e)
+        {
+            if (e is MouseEventArgs mouseArgs)
+            {
+                var hitInfo = gridView1.CalcHitInfo(mouseArgs.Location);
+                if (hitInfo.InRow || hitInfo.InRowCell)
+                {
+                    //var memberDetails =
+                    //    new MemberDetails(int.Parse(gridView1.GetFocusedRowCellDisplayText("ID")));
+                    //memberDetails.MdiParent = MdiParent;
+                    //memberDetails.Show();
+                    int memshipid = int.Parse(gridView1.GetRowCellValue(hitInfo.RowHandle, "ID").ToString());
+                    SaveChanges();
+                    var membershipDetails = new MembershipDetails(_memberId , memshipid)
+                    {
+                        MdiParent = this.MdiParent
+                    };
+                    membershipDetails.Show();
+
+                }
+            }
+
+
         }
     }
 }

@@ -6,6 +6,7 @@ using DevExpress.UserSkins;
 using DevExpress.Skins;
 using DevExpress.LookAndFeel;
 using System.Drawing;
+using DevExpress.XtraBars.Controls;
 
 namespace GMM
 {
@@ -22,9 +23,11 @@ namespace GMM
 
             BonusSkins.Register();
             SkinManager.EnableFormSkins();
-            UserLookAndFeel.Default.SetSkinStyle("DevExpress Style");
-            DevExpress.XtraEditors.WindowsFormsSettings.DefaultFont = new Font("Courier New", 12);
-            Application.Run(new MainForm());
+            UserLookAndFeel.Default.SetSkinStyle(("DevExpress Style"));
+            Animator.AllowFadeAnimation = false;
+            SkinManager.DisableFormSkins();
+            SkinManager.DisableMdiFormSkins();
+            DevExpress.XtraEditors.WindowsFormsSettings.DefaultFont = new Font("Courier New", 12);Application.Run(new MainForm());
         }
     }
 }

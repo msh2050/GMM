@@ -7,6 +7,8 @@ namespace GMM.forms
 {
     public partial class MembersList : RibbonForm
     {
+        private int _memberid;
+
         public MembersList()
         {
             InitializeComponent();
@@ -51,8 +53,7 @@ namespace GMM.forms
                     var memberDetails =
                         new MemberDetails(int.Parse(tileView1.GetFocusedRowCellDisplayText("ID")));
                     memberDetails.MdiParent = MdiParent;
-                    memberDetails.Show();
-                }
+                    memberDetails.Show();}
             }
         }
 
@@ -62,8 +63,8 @@ namespace GMM.forms
             membersBindingSource.Filter = string.IsNullOrEmpty(searchtext)
                 ? "name IS NOT NULL"
                 : $"name LIKE '%{searchtext}%' OR phonenumber LIKE '%{searchtext}%' " +
-                  $"OR AlternatePhoneNumber LIKE '%{searchtext}%' OR Barecode LIKE '{searchtext}'";
-            
+                  $"OR AlternatePhoneNumber LIKE '%{searchtext}%' OR Barecode LIKE '{searchtext}'" +
+                $"OR Id = '{searchtext}' ";
             ////focus not working
             //barEditItem2.Links[0].Focus();
             //(barEditItem2.Links[0] as BarEditItemLink)?.ShowEditor();
@@ -71,6 +72,16 @@ namespace GMM.forms
             //(ribbonControl.SelectedPage.Groups[2].ItemLinks[0] as BarEditItemLink).ShowEditor();
         }
 
-        
+      private void tileView1_ItemRightClick_1(object sender,
+            DevExpress.XtraGrid.Views.Tile.TileViewItemClickEventArgs e)
+        {
+            _memberid = int.Parse(tileView1.GetFocusedRowCellDisplayText("ID"));
+            popupMenu1.ShowPopup(MousePosition);
+        }
+
+        private void barButtonItem2_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            memcheckTableAdapter1.Insertcheck(_memberid, DateTime.Now);
+        }
     }
 }
