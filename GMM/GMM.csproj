@@ -165,6 +165,13 @@
     <Compile Include="forms\MembershipDetails.Designer.cs">
       <DependentUpon>MembershipDetails.cs</DependentUpon>
     </Compile>
+    <Compile Include="forms\NewMembersList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\NewMembersList.Designer.cs">
+      <DependentUpon>NewMembersList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="helpers\BooleanFormatter.cs" />
     <Compile Include="helpers\checkin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -177,6 +184,7 @@
     <Compile Include="helpers\Crop.Designer.cs">
       <DependentUpon>Crop.cs</DependentUpon>
     </Compile>
+    <Compile Include="helpers\LoadPicture.cs" />
     <Compile Include="helpers\UniqueId.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
@@ -212,6 +220,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="forms\MembersList.resx">
       <DependentUpon>MembersList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\NewMembersList.resx">
+      <DependentUpon>NewMembersList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="helpers\checkin.resx">
       <DependentUpon>checkin.cs</DependentUpon>

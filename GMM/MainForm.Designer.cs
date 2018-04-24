@@ -34,6 +34,7 @@
             this.navBarGroup1 = new DevExpress.XtraNavBar.NavBarGroup();
             this.navBarItem1 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem2 = new DevExpress.XtraNavBar.NavBarItem();
+            this.ال = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarGroup2 = new DevExpress.XtraNavBar.NavBarGroup();
             this.navBarItem3 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem4 = new DevExpress.XtraNavBar.NavBarItem();
@@ -61,7 +62,8 @@
             this.navBarItem3,
             this.navBarItem4,
             this.navBarItem5,
-            this.الاشتراكات});
+            this.الاشتراكات,
+            this.ال});
             this.navBarControl1.Location = new System.Drawing.Point(0, 0);
             this.navBarControl1.Name = "navBarControl1";
             this.navBarControl1.OptionsNavPane.ExpandedWidth = 333;
@@ -76,7 +78,8 @@
             this.navBarGroup1.Expanded = true;
             this.navBarGroup1.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem1),
-            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem2)});
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem2),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.ال)});
             this.navBarGroup1.Name = "navBarGroup1";
             // 
             // navBarItem1
@@ -92,6 +95,13 @@
             this.navBarItem2.ImageOptions.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarItem2.ImageOptions.SmallImage")));
             this.navBarItem2.Name = "navBarItem2";
             this.navBarItem2.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.NavBarItem2_LinkClicked);
+            // 
+            // ال
+            // 
+            this.ال.Caption = "قائمة المشتركين المفصلة ";
+            this.ال.ImageOptions.SmallImage = ((System.Drawing.Image)(resources.GetObject("ال.ImageOptions.SmallImage")));
+            this.ال.Name = "ال";
+            this.ال.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem6_LinkClicked);
             // 
             // navBarGroup2
             // 
@@ -182,6 +192,7 @@
         private DevExpress.XtraNavBar.NavBarGroup navBarGroup3;
         private DevExpress.XtraNavBar.NavBarItem navBarItem5;
         private DevExpress.XtraNavBar.NavBarItem الاشتراكات;
+        private DevExpress.XtraNavBar.NavBarItem ال;
     }
 }
 

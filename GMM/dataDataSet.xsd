@@ -290,6 +290,44 @@ WHERE  (Barecode LIKE ?)</CommandText>
               </DbSource>
             </Sources>
           </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DataTable2TableAdapter" GeneratorDataComponentClassName="DataTable2TableAdapter" Name="DataTable2" UserDataComponentName="DataTable2TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="dataConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT members.ID, members.name, members.phonenumber, members.Picture, members.Barecode, members.IsDeactivated, memberships.MembershipEndDate, memberships.AmountRemaining, memberships.IsCanceled, 
+SUM(IIF ( Month(memcheck.checkintime) = Month(now()) , 1, 0)) AS totalcheckMonth,
+SUM(IIF ( (DateValue(memcheck.checkintime)) = DateValue(now())  , 1, 0)) AS totalcheckDay,
+count(memcheck.checkintime) as totalcheck
+FROM     ((members INNER JOIN
+                  memberships ON members.ID = memberships.Mname) INNER JOIN
+                  memcheck ON members.ID = memcheck.Mname)
+WHERE  (memberships.MembershipEndDate =
+                      (SELECT MAX(MembershipEndDate) AS Expr1
+                       FROM      memberships C2
+                       WHERE   (Mname = memberships.Mname)))
+GROUP BY members.ID, members.name, members.phonenumber, members.Picture, members.Barecode, members.IsDeactivated, memberships.MembershipEndDate, memberships.IsCanceled, memberships.AmountRemaining</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="ID" DataSetColumn="ID" />
+              <Mapping SourceColumn="name" DataSetColumn="name" />
+              <Mapping SourceColumn="phonenumber" DataSetColumn="phonenumber" />
+              <Mapping SourceColumn="Picture" DataSetColumn="Picture" />
+              <Mapping SourceColumn="Barecode" DataSetColumn="Barecode" />
+              <Mapping SourceColumn="IsDeactivated" DataSetColumn="IsDeactivated" />
+              <Mapping SourceColumn="MembershipEndDate" DataSetColumn="MembershipEndDate" />
+              <Mapping SourceColumn="AmountRemaining" DataSetColumn="AmountRemaining" />
+              <Mapping SourceColumn="IsCanceled" DataSetColumn="IsCanceled" />
+              <Mapping SourceColumn="totalcheck" DataSetColumn="totalcheck" />
+              <Mapping SourceColumn="totalcheckMonth" DataSetColumn="totalcheckMonth" />
+              <Mapping SourceColumn="totalcheckDay" DataSetColumn="totalcheckDay" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
         </Tables>
         <Sources />
       </DataSource>
@@ -370,6 +408,48 @@ WHERE  (Barecode LIKE ?)</CommandText>
               <xs:element name="ID" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" />
               <xs:element name="Mname" msprop:Generator_ColumnVarNameInTable="columnMname" msprop:Generator_ColumnPropNameInRow="Mname" msprop:Generator_ColumnPropNameInTable="MnameColumn" msprop:Generator_UserColumnName="Mname" type="xs:int" minOccurs="0" />
               <xs:element name="checkintime" msdata:DateTimeMode="Local" msprop:Generator_ColumnVarNameInTable="columncheckintime" msprop:Generator_ColumnPropNameInRow="checkintime" msprop:Generator_ColumnPropNameInTable="checkintimeColumn" msprop:Generator_UserColumnName="checkintime" type="xs:dateTime" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DataTable2" msprop:Generator_TableClassName="DataTable2DataTable" msprop:Generator_TableVarName="tableDataTable2" msprop:Generator_TablePropName="DataTable2" msprop:Generator_RowDeletingName="DataTable2RowDeleting" msprop:Generator_RowChangingName="DataTable2RowChanging" msprop:Generator_RowEvHandlerName="DataTable2RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable2RowDeleted" msprop:Generator_UserTableName="DataTable2" msprop:Generator_RowChangedName="DataTable2RowChanged" msprop:Generator_RowEvArgName="DataTable2RowChangeEvent" msprop:Generator_RowClassName="DataTable2Row">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ID" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" minOccurs="0" />
+              <xs:element name="name" msprop:Generator_ColumnVarNameInTable="columnname" msprop:Generator_ColumnPropNameInRow="name" msprop:Generator_ColumnPropNameInTable="nameColumn" msprop:Generator_UserColumnName="name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="phonenumber" msprop:Generator_ColumnVarNameInTable="columnphonenumber" msprop:Generator_ColumnPropNameInRow="phonenumber" msprop:Generator_ColumnPropNameInTable="phonenumberColumn" msprop:Generator_UserColumnName="phonenumber" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Picture" msprop:Generator_ColumnVarNameInTable="columnPicture" msprop:Generator_ColumnPropNameInRow="Picture" msprop:Generator_ColumnPropNameInTable="PictureColumn" msprop:Generator_UserColumnName="Picture" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="536870910" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Barecode" msprop:Generator_ColumnVarNameInTable="columnBarecode" msprop:Generator_ColumnPropNameInRow="Barecode" msprop:Generator_ColumnPropNameInTable="BarecodeColumn" msprop:Generator_UserColumnName="Barecode" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="25" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="IsDeactivated" msprop:Generator_ColumnVarNameInTable="columnIsDeactivated" msprop:Generator_ColumnPropNameInRow="IsDeactivated" msprop:Generator_ColumnPropNameInTable="IsDeactivatedColumn" msprop:Generator_UserColumnName="IsDeactivated" type="xs:boolean" minOccurs="0" />
+              <xs:element name="MembershipEndDate" msprop:Generator_ColumnVarNameInTable="columnMembershipEndDate" msprop:Generator_ColumnPropNameInRow="MembershipEndDate" msprop:Generator_ColumnPropNameInTable="MembershipEndDateColumn" msprop:Generator_UserColumnName="MembershipEndDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="AmountRemaining" msprop:Generator_ColumnVarNameInTable="columnAmountRemaining" msprop:Generator_ColumnPropNameInRow="AmountRemaining" msprop:Generator_ColumnPropNameInTable="AmountRemainingColumn" msprop:Generator_UserColumnName="AmountRemaining" type="xs:int" minOccurs="0" />
+              <xs:element name="IsCanceled" msprop:Generator_ColumnVarNameInTable="columnIsCanceled" msprop:Generator_ColumnPropNameInRow="IsCanceled" msprop:Generator_ColumnPropNameInTable="IsCanceledColumn" msprop:Generator_UserColumnName="IsCanceled" type="xs:boolean" minOccurs="0" />
+              <xs:element name="totalcheck" msprop:Generator_ColumnVarNameInTable="columntotalcheck" msprop:Generator_ColumnPropNameInRow="totalcheck" msprop:Generator_ColumnPropNameInTable="totalcheckColumn" msprop:Generator_UserColumnName="totalcheck" type="xs:int" minOccurs="0" />
+              <xs:element name="totalcheckMonth" msprop:Generator_ColumnVarNameInTable="columntotalcheckMonth" msprop:Generator_ColumnPropNameInRow="totalcheckMonth" msprop:Generator_ColumnPropNameInTable="totalcheckMonthColumn" msprop:Generator_UserColumnName="totalcheckMonth" type="xs:int" minOccurs="0" />
+              <xs:element name="totalcheckDay" msprop:Generator_ColumnVarNameInTable="columntotalcheckDay" msprop:Generator_ColumnPropNameInRow="totalcheckDay" msprop:Generator_ColumnPropNameInTable="totalcheckDayColumn" msprop:Generator_UserColumnName="totalcheckDay" type="xs:int" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

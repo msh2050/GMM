@@ -95,6 +95,11 @@ namespace GMM
 
         }
 
-      
+        private void navBarItem6_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            NewMembersList newMembersList = new NewMembersList();
+            newMembersList.MdiParent = this;
+            newMembersList.Show();
+        }
     }
 }

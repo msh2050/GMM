@@ -83,5 +83,7 @@ namespace GMM.forms
         {
             memcheckTableAdapter1.Insertcheck(_memberid, DateTime.Now);
         }
+
+        
     }
 }
