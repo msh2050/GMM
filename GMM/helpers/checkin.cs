@@ -81,7 +81,7 @@ namespace GMM.helpers
 
             timer1.Interval = 10000;
             timer1.Tick += new EventHandler(timer_Tick);
-            timer1.Start();
+            //timer1.Start(); // diabeled as requested.
             
         }
         void timer_Tick(object sender, EventArgs e)

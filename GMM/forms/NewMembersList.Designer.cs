@@ -53,6 +53,10 @@
             DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement8 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
             DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement9 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
             DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement10 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
+            DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement11 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
+            DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement12 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
+            DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement13 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
+            DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement14 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
             this.colname = new DevExpress.XtraGrid.Columns.TileViewColumn();
             this.colID = new DevExpress.XtraGrid.Columns.TileViewColumn();
             this.coltotalcheck = new DevExpress.XtraGrid.Columns.TileViewColumn();
@@ -72,10 +76,10 @@
             this.colIsDeactivated = new DevExpress.XtraGrid.Columns.TileViewColumn();
             this.colIsCanceled = new DevExpress.XtraGrid.Columns.TileViewColumn();
             this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.dataTable2TableAdapter1 = new GMM.dataDataSetTableAdapters.DataTable2TableAdapter();
             this.memcheckTableAdapter1 = new GMM.dataDataSetTableAdapters.memcheckTableAdapter();
-            this.simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.searchControl1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
@@ -268,7 +272,7 @@
             this.tileView1.TileSpans.Add(tableSpan4);
             tileViewItemElement1.Appearance.Normal.FontSizeDelta = 1;
             tileViewItemElement1.Appearance.Normal.FontStyleDelta = System.Drawing.FontStyle.Bold;
-            tileViewItemElement1.Appearance.Normal.ForeColor = System.Drawing.Color.Red;
+            tileViewItemElement1.Appearance.Normal.ForeColor = System.Drawing.Color.Navy;
             tileViewItemElement1.Appearance.Normal.Options.UseFont = true;
             tileViewItemElement1.Appearance.Normal.Options.UseForeColor = true;
             tileViewItemElement1.Column = this.colname;
@@ -352,6 +356,37 @@
             tileViewItemElement10.Text = "colPicture";
             tileViewItemElement10.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleRight;
             tileViewItemElement10.TextVisible = false;
+            tileViewItemElement11.Appearance.Normal.FontSizeDelta = -4;
+            tileViewItemElement11.Appearance.Normal.Options.UseFont = true;
+            tileViewItemElement11.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            tileViewItemElement11.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
+            tileViewItemElement11.RowIndex = 3;
+            tileViewItemElement11.Text = "المبلغ المتبقي";
+            tileViewItemElement11.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.BottomRight;
+            tileViewItemElement12.Appearance.Normal.FontSizeDelta = -4;
+            tileViewItemElement12.Appearance.Normal.Options.UseFont = true;
+            tileViewItemElement12.ColumnIndex = 2;
+            tileViewItemElement12.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            tileViewItemElement12.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
+            tileViewItemElement12.RowIndex = 3;
+            tileViewItemElement12.Text = "مجموع التاشيرات";
+            tileViewItemElement12.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.TopLeft;
+            tileViewItemElement13.Appearance.Normal.FontSizeDelta = -4;
+            tileViewItemElement13.Appearance.Normal.Options.UseFont = true;
+            tileViewItemElement13.ColumnIndex = 3;
+            tileViewItemElement13.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            tileViewItemElement13.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
+            tileViewItemElement13.RowIndex = 3;
+            tileViewItemElement13.Text = "تاشيرات الشهر";
+            tileViewItemElement13.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.TopLeft;
+            tileViewItemElement14.Appearance.Normal.FontSizeDelta = -4;
+            tileViewItemElement14.Appearance.Normal.Options.UseFont = true;
+            tileViewItemElement14.ColumnIndex = 3;
+            tileViewItemElement14.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            tileViewItemElement14.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
+            tileViewItemElement14.RowIndex = 3;
+            tileViewItemElement14.Text = "تأشير اليوم";
+            tileViewItemElement14.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.BottomLeft;
             this.tileView1.TileTemplate.Add(tileViewItemElement1);
             this.tileView1.TileTemplate.Add(tileViewItemElement2);
             this.tileView1.TileTemplate.Add(tileViewItemElement3);
@@ -362,6 +397,10 @@
             this.tileView1.TileTemplate.Add(tileViewItemElement8);
             this.tileView1.TileTemplate.Add(tileViewItemElement9);
             this.tileView1.TileTemplate.Add(tileViewItemElement10);
+            this.tileView1.TileTemplate.Add(tileViewItemElement11);
+            this.tileView1.TileTemplate.Add(tileViewItemElement12);
+            this.tileView1.TileTemplate.Add(tileViewItemElement13);
+            this.tileView1.TileTemplate.Add(tileViewItemElement14);
             this.tileView1.ContextButtonClick += new DevExpress.Utils.ContextItemClickEventHandler(this.tileView1_ContextButtonClick);
             this.tileView1.ItemCustomize += new DevExpress.XtraGrid.Views.Tile.TileViewItemCustomizeEventHandler(this.tileView1_ItemCustomize);
             this.tileView1.CustomColumnDisplayText += new DevExpress.XtraGrid.Views.Base.CustomColumnDisplayTextEventHandler(this.tileView1_CustomColumnDisplayText);
@@ -400,6 +439,17 @@
             this.simpleButton2.Text = "تعديل المشترك";
             this.simpleButton2.Click += new System.EventHandler(this.simpleButton2_Click);
             // 
+            // simpleButton3
+            // 
+            this.simpleButton3.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton3.ImageOptions.Image")));
+            this.simpleButton3.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.TopCenter;
+            this.simpleButton3.Location = new System.Drawing.Point(595, 3);
+            this.simpleButton3.Name = "simpleButton3";
+            this.simpleButton3.Size = new System.Drawing.Size(91, 82);
+            this.simpleButton3.TabIndex = 0;
+            this.simpleButton3.Text = "تحديث";
+            this.simpleButton3.Click += new System.EventHandler(this.simpleButton3_Click);
+            // 
             // simpleButton1
             // 
             this.simpleButton1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
@@ -418,17 +468,6 @@
             // memcheckTableAdapter1
             // 
             this.memcheckTableAdapter1.ClearBeforeFill = true;
-            // 
-            // simpleButton3
-            // 
-            this.simpleButton3.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton3.ImageOptions.Image")));
-            this.simpleButton3.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.TopCenter;
-            this.simpleButton3.Location = new System.Drawing.Point(595, 3);
-            this.simpleButton3.Name = "simpleButton3";
-            this.simpleButton3.Size = new System.Drawing.Size(91, 82);
-            this.simpleButton3.TabIndex = 0;
-            this.simpleButton3.Text = "تحديث";
-            this.simpleButton3.Click += new System.EventHandler(this.simpleButton3_Click);
             // 
             // NewMembersList
             // 

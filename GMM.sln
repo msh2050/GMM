@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.27130.2010
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GMM", "GMM\GMM.csproj", "{955716E6-0078-4B99-9C31-05E7F9EC1573}"
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup1", "Setup1\Setup1.vdproj", "{64FBA161-3FE3-4D72-8145-728A9057845A}"
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "GMM_Setup", "GMM_Setup\GMM_Setup.vdproj", "{D70E0A63-E013-4B88-AF18-F232C8D48947}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,12 +23,10 @@ Global
 		{955716E6-0078-4B99-9C31-05E7F9EC1573}.Release|Any CPU.Build.0 = Release|Any CPU
 		{955716E6-0078-4B99-9C31-05E7F9EC1573}.Release|x86.ActiveCfg = Release|x86
 		{955716E6-0078-4B99-9C31-05E7F9EC1573}.Release|x86.Build.0 = Release|x86
-		{64FBA161-3FE3-4D72-8145-728A9057845A}.Debug|Any CPU.ActiveCfg = Debug
-		{64FBA161-3FE3-4D72-8145-728A9057845A}.Debug|x86.ActiveCfg = Debug
-		{64FBA161-3FE3-4D72-8145-728A9057845A}.Debug|x86.Build.0 = Debug
-		{64FBA161-3FE3-4D72-8145-728A9057845A}.Release|Any CPU.ActiveCfg = Release
-		{64FBA161-3FE3-4D72-8145-728A9057845A}.Release|x86.ActiveCfg = Release
-		{64FBA161-3FE3-4D72-8145-728A9057845A}.Release|x86.Build.0 = Release
+		{D70E0A63-E013-4B88-AF18-F232C8D48947}.Debug|Any CPU.ActiveCfg = Debug
+		{D70E0A63-E013-4B88-AF18-F232C8D48947}.Debug|x86.ActiveCfg = Debug
+		{D70E0A63-E013-4B88-AF18-F232C8D48947}.Release|Any CPU.ActiveCfg = Release
+		{D70E0A63-E013-4B88-AF18-F232C8D48947}.Release|x86.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
