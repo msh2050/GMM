@@ -56,9 +56,17 @@ namespace GMM.helpers
             {
                 enddatelabel.Text = $@"{_enddate:dd/MM/yyyy}";
                 int remainigdates = ((DateTime) _enddate - DateTime.Today).Days;
-                remainingdayslabel.Text = remainigdates < 0
-                    ? @"الاشتراك منتهي"
-                    : $@"{"باقي "} {remainigdates} {"يوم"}";
+                if (remainigdates > 0)
+                {
+                    timer1.Interval = 10000;
+                    timer1.Tick += new EventHandler(timer_Tick);
+                    timer1.Start();
+                    remainingdayslabel.Text = $@"{"باقي "} {remainigdates} {"يوم"}";
+                }
+                else
+                {
+                    remainingdayslabel.Text = @"الاشتراك منتهي";
+                }
 
                 labelcurrenttime.Text = DateTime.Now.ToString("dd-MM-yy -- h:m:s tt");
 
@@ -78,16 +86,13 @@ namespace GMM.helpers
                 enddatelabel.Text = @"غير مشترك";
                 remainingdayslabel.Text = @"N/A";
             }
-
-            timer1.Interval = 10000;
-            timer1.Tick += new EventHandler(timer_Tick);
-            //timer1.Start(); // diabeled as requested.
             
         }
         void timer_Tick(object sender, EventArgs e)
         {
             this.Close();
-        }private void Checkin_Shown(object sender, EventArgs e)
+        }
+        private void Checkin_Shown(object sender, EventArgs e)
         {
             setfocustomainform();
             

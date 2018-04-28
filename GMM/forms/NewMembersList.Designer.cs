@@ -297,7 +297,7 @@
             tileViewItemElement3.Text = "coltotalcheck";
             tileViewItemElement3.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.TopCenter;
             tileViewItemElement4.Appearance.Normal.FontSizeDelta = -2;
-            tileViewItemElement4.Appearance.Normal.ForeColor = System.Drawing.Color.Red;
+            tileViewItemElement4.Appearance.Normal.ForeColor = System.Drawing.Color.Blue;
             tileViewItemElement4.Appearance.Normal.Options.UseFont = true;
             tileViewItemElement4.Appearance.Normal.Options.UseForeColor = true;
             tileViewItemElement4.Column = this.coltotalcheckMonth;
