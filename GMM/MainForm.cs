@@ -19,21 +19,21 @@ namespace GMM
 {
     public partial class MainForm : DevExpress.XtraEditors.XtraForm
     {
-        DateTime _lastKeystroke = new DateTime(0);
-        List<char> _barcode = new List<char>(10);
+        //DateTime _lastKeystroke = new DateTime(0);
+        //List<char> _barcode = new List<char>(10);
 
         public MainForm()
         {
             InitializeComponent();
-            var mGlobalHook = Hook.GlobalEvents();
-            mGlobalHook.KeyPress += GlobalHookKeyPress;
+            var mGlobalHook = Hook.AppEvents();
+            //mGlobalHook.KeyDown += GlobalHookKeyPress;
         }
 
-        private void GlobalHookKeyPress(object sender, KeyPressEventArgs e)
-        {
-            CheckifItIsBacecode(e);
-            
-        }
+        //private void GlobalHookKeyPress(object sender, KeyEventArgs e)
+        //{
+        //    CheckifItIsBacecode(e);
+
+        //}
 
         private void NavBarItem2_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
         {
@@ -66,28 +66,29 @@ namespace GMM
 
         }
 
-        public void CheckifItIsBacecode(KeyPressEventArgs e)
-        {
-            // check timing (keystrokes within 100 ms)
-            TimeSpan elapsed = (DateTime.Now - _lastKeystroke);
-            if (elapsed.TotalMilliseconds > 100)
-                _barcode.Clear();
+        //public void CheckifItIsBacecode(KeyEventArgs e)
+        //{
+        //    // check timing (keystrokes within 100 ms)
+        //    TimeSpan elapsed = (DateTime.Now - _lastKeystroke);
+        //    if (elapsed.TotalMilliseconds > 120)
+        //        _barcode.Clear();
 
-            // record keystroke & timestamp
-            _barcode.Add(e.KeyChar);
-            _lastKeystroke = DateTime.Now;
-
-            // process barcode
-            if (e.KeyChar == 13 && _barcode.Count > 7)
-            {
-                string barcode = new String(this._barcode.ToArray());
-
-                int cusid = (int) (membersTableAdapter1.ScalarQuery(barcode.TrimEnd('\r')) ?? -1);
-                if (cusid == -1) return;
-                var checkin = new Checkin(cusid);
-                checkin.Show();
-            }
-        }
+        //    // record keystroke & timestamp
+        //    _barcode.Add((char)e.KeyValue);
+        //    _lastKeystroke = DateTime.Now;
+            
+            
+        //    // process barcode
+        //    if (e.KeyValue == 13 && _barcode.Count > 7)
+        //    {
+        //        e.SuppressKeyPress = true;
+        //        string barcode = new String(this._barcode.ToArray());
+        //        int cusid = (int) (membersTableAdapter1.ScalarQuery(barcode.TrimEnd('\r')) ?? -1);
+        //        if (cusid == -1) return;
+        //        var checkin = new Checkin(cusid);
+        //        checkin.Show();
+        //    }
+        //}
 
         private void الاشتراكات_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
         {var notrenewed = new notrenewed();

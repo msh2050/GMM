@@ -57,20 +57,7 @@ namespace GMM.forms
             }
         }
 
-        private void barEditItem2_EditValueChanged(object sender, EventArgs e)
-        {
-            var searchtext = barEditItem2.EditValue.ToString();
-            membersBindingSource.Filter = string.IsNullOrEmpty(searchtext)
-                ? "name IS NOT NULL"
-                : $"name LIKE '%{searchtext}%' OR phonenumber LIKE '%{searchtext}%' " +
-                  $"OR AlternatePhoneNumber LIKE '%{searchtext}%' OR Barecode LIKE '{searchtext}'" +
-                $"OR Id = '{searchtext}' ";
-            ////focus not working
-            //barEditItem2.Links[0].Focus();
-            //(barEditItem2.Links[0] as BarEditItemLink)?.ShowEditor();
-            //ribbonControl.SelectedPage.Groups[2].ItemLinks[0].Focus();
-            //(ribbonControl.SelectedPage.Groups[2].ItemLinks[0] as BarEditItemLink).ShowEditor();
-        }
+       
 
       private void tileView1_ItemRightClick_1(object sender,
             DevExpress.XtraGrid.Views.Tile.TileViewItemClickEventArgs e)

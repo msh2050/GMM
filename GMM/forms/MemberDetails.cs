@@ -18,7 +18,8 @@ namespace GMM.forms
 {
     public partial class MemberDetails : RibbonForm
     {
-        private readonly int _memberId;
+        private  int _memberId;
+        private string _barcodecurrent;
         public static readonly string Saveloaction = AppDomain.CurrentDomain.BaseDirectory + @"GMMpic";
 
         public MemberDetails(int memberid = -1)
@@ -43,7 +44,12 @@ namespace GMM.forms
                 }
                 Validate();
                 membersBindingSource.EndEdit();
+                _barcodecurrent = barecodeTextEdit.Text;
                 tableAdapterManager.UpdateAll(dataDataSet);
+                dataDataSet.members.Clear();
+                membersTableAdapter.Fill(dataDataSet.members);
+                membersBindingSource.Position = membersBindingSource.Find("Barecode", _barcodecurrent);
+                _memberId = int.Parse(IDtextEdit1.EditValue.ToString());
             }
             catch (Exception ex)
             {
@@ -53,8 +59,7 @@ namespace GMM.forms
 
         private void MemberDetails_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'dataDataSet.memberships' table. You can move, or remove it, as needed.
-            this.membershipsTableAdapter.Fill(this.dataDataSet.memberships);
+            
             // TODO: This line of code loads data into the 'dataDataSet.memberships' table. You can move, or remove it, as needed.
             this.membershipsTableAdapter.Fill(this.dataDataSet.memberships);
             if (_memberId == -1)
@@ -89,6 +94,7 @@ namespace GMM.forms
         {
             SaveChanges();
             membersBindingSource.AddNew();
+            pictureEdit1.Image = null;
         }
 
         private void bbiReset_ItemClick(object sender, ItemClickEventArgs e)
@@ -136,6 +142,7 @@ namespace GMM.forms
 
         private void barButtonItem2_ItemClick(object sender, ItemClickEventArgs e)
         {
+            SaveChanges();
             XtraReport1 report1 = new XtraReport1();
             report1.Parameters["IDP"].Value = _memberId;
             report1.Parameters["IDP"].Visible = false;
