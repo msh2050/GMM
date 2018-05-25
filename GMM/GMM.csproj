@@ -244,6 +244,12 @@
     <Compile Include="reports\checkreport.Designer.cs">
       <DependentUpon>checkreport.cs</DependentUpon>
     </Compile>
+    <Compile Include="reports\monthnotrenewed.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="reports\monthnotrenewed.Designer.cs">
+      <DependentUpon>monthnotrenewed.cs</DependentUpon>
+    </Compile>
     <Compile Include="reports\notrenewed.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -290,6 +296,9 @@
     </Compile>
     <EmbeddedResource Include="reports\checkreport.resx">
       <DependentUpon>checkreport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="reports\monthnotrenewed.resx">
+      <DependentUpon>monthnotrenewed.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="reports\notrenewed.resx">
       <DependentUpon>notrenewed.cs</DependentUpon>

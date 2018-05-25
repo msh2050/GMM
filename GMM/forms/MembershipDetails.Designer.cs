@@ -51,6 +51,7 @@ namespace GMM.forms
             this.amountRemainingSpinEdit = new DevExpress.XtraEditors.SpinEdit();
             this.nameSpinEdit = new DevExpress.XtraEditors.LookUpEdit();
             this.membersBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.checkEdit1 = new DevExpress.XtraEditors.CheckEdit();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlGroup2 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -60,11 +61,10 @@ namespace GMM.forms
             this.layoutControlItem10 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem12 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem14 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.membershipsTableAdapter = new GMM.dataDataSetTableAdapters.membershipsTableAdapter();
             this.tableAdapterManager = new GMM.dataDataSetTableAdapters.TableAdapterManager();
             this.membersTableAdapter = new GMM.dataDataSetTableAdapters.membersTableAdapter();
-            this.checkEdit1 = new DevExpress.XtraEditors.CheckEdit();
-            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataLayoutControl1)).BeginInit();
             this.dataLayoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.membershipStartDateDateEdit.Properties.CalendarTimeProperties)).BeginInit();
@@ -80,6 +80,7 @@ namespace GMM.forms
             ((System.ComponentModel.ISupportInitialize)(this.amountRemainingSpinEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nameSpinEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.membersBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
@@ -89,7 +90,6 @@ namespace GMM.forms
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem12)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem14)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.checkEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -196,6 +196,7 @@ namespace GMM.forms
             this.bbiDelete.Id = 6;
             this.bbiDelete.ImageOptions.ImageUri.Uri = "Delete";
             this.bbiDelete.Name = "bbiDelete";
+            this.bbiDelete.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiDelete_ItemClick);
             // 
             // bbiClose
             // 
@@ -366,6 +367,17 @@ namespace GMM.forms
             this.membersBindingSource.DataMember = "members";
             this.membersBindingSource.DataSource = this.dataDataSet;
             // 
+            // checkEdit1
+            // 
+            this.checkEdit1.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.membershipsBindingSource, "IsCanceled", true));
+            this.checkEdit1.Location = new System.Drawing.Point(16, 212);
+            this.checkEdit1.MenuManager = this.mainRibbonControl;
+            this.checkEdit1.Name = "checkEdit1";
+            this.checkEdit1.Properties.Caption = "الغاء الاشتراك";
+            this.checkEdit1.Size = new System.Drawing.Size(907, 21);
+            this.checkEdit1.StyleController = this.dataLayoutControl1;
+            this.checkEdit1.TabIndex = 18;
+            // 
             // layoutControlGroup1
             // 
             this.layoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
@@ -456,6 +468,15 @@ namespace GMM.forms
             this.layoutControlItem14.Text = "المبلغ المتبقي:";
             this.layoutControlItem14.TextSize = new System.Drawing.Size(119, 17);
             // 
+            // layoutControlItem1
+            // 
+            this.layoutControlItem1.Control = this.checkEdit1;
+            this.layoutControlItem1.Location = new System.Drawing.Point(0, 196);
+            this.layoutControlItem1.Name = "layoutControlItem1";
+            this.layoutControlItem1.Size = new System.Drawing.Size(913, 371);
+            this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem1.TextVisible = false;
+            // 
             // membershipsTableAdapter
             // 
             this.membershipsTableAdapter.ClearBeforeFill = true;
@@ -471,26 +492,6 @@ namespace GMM.forms
             // membersTableAdapter
             // 
             this.membersTableAdapter.ClearBeforeFill = true;
-            // 
-            // checkEdit1
-            // 
-            this.checkEdit1.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.membershipsBindingSource, "IsCanceled", true));
-            this.checkEdit1.Location = new System.Drawing.Point(16, 212);
-            this.checkEdit1.MenuManager = this.mainRibbonControl;
-            this.checkEdit1.Name = "checkEdit1";
-            this.checkEdit1.Properties.Caption = "الغاء الاشتراك";
-            this.checkEdit1.Size = new System.Drawing.Size(907, 21);
-            this.checkEdit1.StyleController = this.dataLayoutControl1;
-            this.checkEdit1.TabIndex = 18;
-            // 
-            // layoutControlItem1
-            // 
-            this.layoutControlItem1.Control = this.checkEdit1;
-            this.layoutControlItem1.Location = new System.Drawing.Point(0, 196);
-            this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(913, 371);
-            this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem1.TextVisible = false;
             // 
             // MembershipDetails
             // 
@@ -523,6 +524,7 @@ namespace GMM.forms
             ((System.ComponentModel.ISupportInitialize)(this.amountRemainingSpinEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nameSpinEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.membersBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
@@ -532,7 +534,6 @@ namespace GMM.forms
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem12)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem14)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.checkEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

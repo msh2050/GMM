@@ -138,6 +138,14 @@ namespace GMM.forms
 
 
         }
+
+        private void bbiDelete_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            this.membershipsBindingSource.RemoveCurrent();
+            SaveChanges();
+            Close();
+
+        }
     }
     
 }

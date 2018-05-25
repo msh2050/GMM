@@ -40,9 +40,11 @@ namespace GMM.helpers
         private void Checkin_Load(object sender, EventArgs e)
         {
             
-            _enddate = membershipsTableAdapter.GetData().FirstOrDefault(x => x.Mname == _memberId)?.MembershipEndDate;
+            //_enddate = membershipsTableAdapter.GetData().FirstOrDefault(x => x.Mname == _memberId)?.MembershipEndDate;
 
-            
+            _enddate = membershipsTableAdapter.GetData().Where(x => x.Mname == _memberId)
+                ?.Max(o => o.MembershipEndDate);
+
             // TODO: This line of code loads data into the 'dataDataSet.members' table. You can move, or remove it, as needed.
             this.membersTableAdapter.FillByID(this.dataDataSet.members , _memberId);
 

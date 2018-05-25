@@ -3,26 +3,29 @@ using System.Drawing;
 using System.Collections;
 using System.ComponentModel;
 using System.IO;
+using DevExpress.Data.Filtering.Helpers;
 using DevExpress.XtraReports.UI;
 using GMM.forms;
 
 namespace GMM.reports
 {
-    public partial class notrenewed : DevExpress.XtraReports.UI.XtraReport
+    public partial class monthnotrenewed : DevExpress.XtraReports.UI.XtraReport
     {
-        public notrenewed()
+        public monthnotrenewed()
         {
             InitializeComponent();
         }
 
         private void xrPictureBox1_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
-            if (GetCurrentColumnValue("Picture") == null ) return;
+            xrPictureBox1.ImageUrl = "";if (String.IsNullOrEmpty(GetCurrentColumnValue("Picture").ToString())) return;
             string imjurlstrin = MemberDetails.Saveloaction + Convert.ToString(GetCurrentColumnValue("Picture"));
 
             if (File.Exists(imjurlstrin))
             {
                 xrPictureBox1.ImageUrl = imjurlstrin;
-            }}
+            }
+
+        }
     }
 }

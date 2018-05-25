@@ -91,7 +91,8 @@ namespace GMM
         //}
 
         private void الاشتراكات_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
-        {var notrenewed = new notrenewed();
+        {
+            var notrenewed = new notrenewed();
             notrenewed.ShowRibbonPreview();
 
         }
@@ -101,6 +102,13 @@ namespace GMM
             NewMembersList newMembersList = new NewMembersList();
             newMembersList.MdiParent = this;
             newMembersList.Show();
+        }
+
+        private void navBarItem6_LinkClicked_1(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            monthnotrenewed _monthnotrenewed = new monthnotrenewed();
+            _monthnotrenewed.ShowRibbonPreview();
+
         }
     }
 }

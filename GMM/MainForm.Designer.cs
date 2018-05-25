@@ -41,6 +41,7 @@
             this.navBarGroup3 = new DevExpress.XtraNavBar.NavBarGroup();
             this.navBarItem5 = new DevExpress.XtraNavBar.NavBarItem();
             this.الاشتراكات = new DevExpress.XtraNavBar.NavBarItem();
+            this.navBarItem6 = new DevExpress.XtraNavBar.NavBarItem();
             this.xtraTabbedMdiManager1 = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
             this.membersTableAdapter1 = new GMM.dataDataSetTableAdapters.membersTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.navBarControl1)).BeginInit();
@@ -63,12 +64,13 @@
             this.navBarItem4,
             this.navBarItem5,
             this.الاشتراكات,
-            this.ال});
+            this.ال,
+            this.navBarItem6});
             this.navBarControl1.Location = new System.Drawing.Point(0, 0);
             this.navBarControl1.Name = "navBarControl1";
             this.navBarControl1.OptionsNavPane.ExpandedWidth = 333;
             this.navBarControl1.PaintStyleKind = DevExpress.XtraNavBar.NavBarViewKind.NavigationPane;
-            this.navBarControl1.Size = new System.Drawing.Size(333, 448);
+            this.navBarControl1.Size = new System.Drawing.Size(333, 498);
             this.navBarControl1.TabIndex = 1;
             this.navBarControl1.Text = "navBarControl1";
             // 
@@ -129,7 +131,8 @@
             this.navBarGroup3.Caption = "التقارير";
             this.navBarGroup3.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem5),
-            new DevExpress.XtraNavBar.NavBarItemLink(this.الاشتراكات)});
+            new DevExpress.XtraNavBar.NavBarItemLink(this.الاشتراكات),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem6)});
             this.navBarGroup3.Name = "navBarGroup3";
             // 
             // navBarItem5
@@ -143,6 +146,12 @@
             this.الاشتراكات.Caption = "الاشتراكات المنتهية";
             this.الاشتراكات.Name = "الاشتراكات";
             this.الاشتراكات.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.الاشتراكات_LinkClicked);
+            // 
+            // navBarItem6
+            // 
+            this.navBarItem6.Caption = "تاريخ انتهاء الاشتراكات";
+            this.navBarItem6.Name = "navBarItem6";
+            this.navBarItem6.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem6_LinkClicked_1);
             // 
             // xtraTabbedMdiManager1
             // 
@@ -160,7 +169,7 @@
             this.Appearance.Options.UseFont = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 26F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(891, 448);
+            this.ClientSize = new System.Drawing.Size(913, 498);
             this.Controls.Add(this.navBarControl1);
             this.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
@@ -192,6 +201,7 @@
         private DevExpress.XtraNavBar.NavBarItem navBarItem5;
         private DevExpress.XtraNavBar.NavBarItem الاشتراكات;
         private DevExpress.XtraNavBar.NavBarItem ال;
+        private DevExpress.XtraNavBar.NavBarItem navBarItem6;
     }
 }
 

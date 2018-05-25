@@ -18,9 +18,10 @@ namespace GMM.forms
 {
     public partial class MemberDetails : RibbonForm
     {
-        private  int _memberId;
+        private int _memberId;
         private string _barcodecurrent;
         public static readonly string Saveloaction = AppDomain.CurrentDomain.BaseDirectory + @"GMMpic";
+        private Image currentImage = null;
 
         public MemberDetails(int memberid = -1)
         {
@@ -37,11 +38,15 @@ namespace GMM.forms
                 {
                     Directory.CreateDirectory(Saveloaction);
                 }
-                if (pictureEdit1.Image != null)
+
+                if (pictureEdit1.Image != null && pictureEdit1.Image.GetHashCode() !=
+                    (currentImage?.GetHashCode() ?? 0))
                 {
                     pictureEdit1.Image.Save(Saveloaction + photoname, ImageFormat.Jpeg);
                     pictureTextEdit.Text = photoname;
+                    currentImage = pictureEdit1.Image;
                 }
+
                 Validate();
                 membersBindingSource.EndEdit();
                 _barcodecurrent = barecodeTextEdit.Text;
@@ -59,13 +64,11 @@ namespace GMM.forms
 
         private void MemberDetails_Load(object sender, EventArgs e)
         {
-            
             // TODO: This line of code loads data into the 'dataDataSet.memberships' table. You can move, or remove it, as needed.
             this.membershipsTableAdapter.Fill(this.dataDataSet.memberships);
             if (_memberId == -1)
             {
                 membersBindingSource.AddNew();
-                
             }
             else
             {
@@ -75,6 +78,7 @@ namespace GMM.forms
                 if (File.Exists(Saveloaction + pictureTextEdit.Text))
                 {
                     pictureEdit1.Image = Image.FromFile(Saveloaction + pictureTextEdit.Text);
+                    currentImage = pictureEdit1.Image;
                 }
             }
         }
@@ -106,6 +110,7 @@ namespace GMM.forms
         {
             membersBindingSource.RemoveCurrent();
             SaveChanges();
+            Close();
         }
 
         private void bbiClose_ItemClick(object sender, ItemClickEventArgs e)
@@ -137,9 +142,6 @@ namespace GMM.forms
             membershipDetails.Show();
         }
 
-     
-        
-
         private void barButtonItem2_ItemClick(object sender, ItemClickEventArgs e)
         {
             SaveChanges();
@@ -160,7 +162,8 @@ namespace GMM.forms
             barCode.Symbology = Symbology.Code93;
             barCode.CodeText = barecodeTextEdit.Text;
             barCode.CodeBinaryData = Encoding.Default.GetBytes(barCode.CodeText);
-            barecodeTextEdit.Text = barCode.CodeText; pictureEdit2.Image = barCode.BarCodeImage;
+            barecodeTextEdit.Text = barCode.CodeText;
+            pictureEdit2.Image = barCode.BarCodeImage;
         }
 
         private void gridView1_DoubleClick(object sender, EventArgs e)
@@ -175,17 +178,13 @@ namespace GMM.forms
                     //memberDetails.MdiParent = MdiParent;
                     //memberDetails.Show();
                     int memshipid = int.Parse(gridView1.GetRowCellValue(hitInfo.RowHandle, "ID").ToString());
-                    SaveChanges();
-                    var membershipDetails = new MembershipDetails(_memberId , memshipid)
+                    SaveChanges();var membershipDetails = new MembershipDetails(_memberId, memshipid)
                     {
                         MdiParent = this.MdiParent
                     };
                     membershipDetails.Show();
-
                 }
             }
-
-
         }
     }
 }
